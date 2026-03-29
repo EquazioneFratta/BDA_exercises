@@ -394,7 +394,6 @@ public class Ex1 extends Configured implements Tool {
         Path inputPath = new Path(args[0]);
         Path intermediatePath = new Path(args[1]);
         Path outputPath = new Path(args[2]);
-        long startTime = System.currentTimeMillis();
         // ----- JOB 1 : Counting -----
         Job job1 = Job.getInstance(new Configuration(), "HadoopWordCount-Job1-Counting");
         job1.setJarByClass(Ex1.class);
@@ -444,24 +443,6 @@ public class Ex1 extends Configured implements Tool {
             System.err.println("Job 2 failed.");
             return 1;
         }
-        long elapsedMs = System.currentTimeMillis() - startTime;
-        double elapsedSec = elapsedMs / 1000.0;
-
-        String timestamp = new java.text.SimpleDateFormat("yyyy-MM-dd_HH-mm-ss")
-                .format(new java.util.Date());
-
-        String logLine = String.format("[%s] Input: %-30s  Runtime: %.3f s (%d ms)\n",
-                timestamp, args[0], elapsedSec, elapsedMs);
-
-        org.apache.hadoop.fs.FileSystem fs = org.apache.hadoop.fs.FileSystem.get(getConf());
-        org.apache.hadoop.fs.Path logPath = new org.apache.hadoop.fs.Path(
-                args[2] + "/Problem_1_" + timestamp + ".txt");
-
-        try (org.apache.hadoop.fs.FSDataOutputStream out = fs.create(logPath)) {
-            out.writeBytes(logLine);
-        }
-
-        System.out.println("Runtime salvato su HDFS: " + logPath);
         return 0;
     }
 
