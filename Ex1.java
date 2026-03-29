@@ -391,7 +391,6 @@ public class Ex1 extends Configured implements Tool {
             return 1;
         }
 
-        Path inputPath = new Path(args[0]);
         Path intermediatePath = new Path(args[1]);
         Path outputPath = new Path(args[2]);
         // ----- JOB 1 : Counting -----
@@ -410,7 +409,7 @@ public class Ex1 extends Configured implements Tool {
         job1.setInputFormatClass(TextInputFormat.class);
         job1.setOutputFormatClass(TextOutputFormat.class);
 
-        FileInputFormat.setInputPaths(job1, inputPath);
+        FileInputFormat.setInputPaths(job1, args[0]);
         FileOutputFormat.setOutputPath(job1, intermediatePath);
 
         boolean job1Success = job1.waitForCompletion(true);
