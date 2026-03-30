@@ -1,0 +1,38 @@
+============================================================
+              SCALABILITY EXPERIMENT
+              Wikipedia Word Count
+============================================================
+
+[ HARDWARE ]
+------------------------------------------------------------
+Node        : iris-074
+CPU Cores   : 28
+RAM         : 112 GB
+Setup       : Hadoop (local single-node mode)
+
+[ RESULTS ]
+------------------------------------------------------------
+Input Range         | Runtime (s)
+--------------------|------------
+AA                  | 30
+AA → AB             | 58
+AA → AC             | 84
+AA → AD             | 112
+AA → AE             | 140
+AA → AF             | 168
+AA → AG             | 193
+AA → AH             | 222
+AA → AI             | 251
+AA → AJ             | 277
+AA → AK             | 301
+
+[ ANALYSIS ]
+------------------------------------------------------------
+Execution time scales linearly with input size.
+Each additional subdirectory adds approximately ~27 seconds.
+
+This is consistent with a MapReduce pipeline where work grows 
+proportionally to input, with no significant overhead 
+introduced by larger datasets.
+
+============================================================
