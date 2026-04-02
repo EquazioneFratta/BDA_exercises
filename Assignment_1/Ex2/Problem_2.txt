@@ -1,0 +1,34 @@
+Hardware setup:
+	1. Iris-cluster
+	2. MacBook Air 15-inch, M3, 2024
+
+Runtimes:
+
+	1. Iris-cluster-AA: 6.737s
+
+26/03/27 23:17:49 INFO DAGScheduler: ResultStage 4 (runJob at SparkHadoopWriter.scala:85)
+finished in 6737 ms
+
+	2. MacBook Air-AA: 6.806s
+
+26/03/27 23:26:47 INFO DAGScheduler: ResultStage 4 (runJob at SparkHadoopWriter.scala:85)
+finished in 6806 ms
+
+
+
+
+AI platform: Grok 4.20
+
+The most important prompt:
+
+Repeat the above steps in Apache Spark based on the SparkWordCount.scala example provided on Moodle1. You may directly extend the provided tokenizer to also extract immediate pairs of tokens (again with a distance of m ≤ 2), and you may use any of the RDD transformations and actions provided in the lecture slides. Also here, try to minimize the amount of Spark transformations you need in order to complete the given tasks. I want to complete this assignment.
+
+Just add the output results to my existing code.
+
+I'd like to ask, for example, are "the brown" and "brown the" the same word?
+
+Where are RDDs used?
+
+reduceByKey(func) Combine the values under the same key. explain it to me
+
+What are the functions of zip and drop?
