@@ -1,0 +1,184 @@
+============================================================
+         WEATHER PREDICTION VIA LINEAR REGRESSION
+                   & REGRESSION TREES
+                       Problem 2
+============================================================
+
+[ HARDWARE ]
+------------------------------------------------------------
+Setup       : Local machine (no HPC cluster)
+CPU Cores   : 12
+RAM         : 32 GB
+
+[ DATASET ]
+------------------------------------------------------------
+Source      : NOAA Integrated Surface Data (ISD)
+Station     : Luxembourg Air Force (USAF 065900)
+Period      : 01/01/1949 – 01/04/2025
+Files       : 61 .gz files (~35 MB compressed)
+Total rows  : ~900,000 records (after missing value filtering)
+
+Note: Years 1957–1972 are completely absent from the dataset
+for this station. Record density varies significantly across
+years, from ~1,400 records/year (1949–1955) to ~26,000
+records/year (2003–present), reflecting changes in measurement
+frequency over time.
+
+Records per year breakdown (selected):
+  1949–1955 : ~1,400–1,460  (sparse, ~4 readings/day)
+  1957–1972 : MISSING
+  1973–1992 : ~21,000–24,000
+  1993–1998 : ~8,700         (drop in reporting frequency)
+  2003–2023 : ~24,000–26,000 (stable hourly readings)
+  2024      : 25,208
+  2025      : 16,810         (partial year)
+
+[ FEATURES USED ]
+------------------------------------------------------------
+Input features (12):
+  year, month, day, hour,
+  latitude, longitude, elevation,
+  windDirection, windSpeed,
+  ceilingHeight, visibility, dewPointTemp
+
+Target attribute: airTemperature (°C)
+
+Scaling factors applied during parsing:
+  - latitude, longitude : divided by 1000
+  - windSpeed           : divided by 10
+  - airTemperature      : divided by 10
+  - dewPointTemp        : divided by 10
+
+[ SPLITS ]
+------------------------------------------------------------
+Training set   : all records from 1949 to 2023
+Validation set : all records from 2024 (25,208 records)
+Test set       : all records from 2025 (16,810 records)
+
+Note: splits are year-based, not random, to simulate
+realistic temporal forecasting conditions.
+
+[ RESULTS — 2b: LINEAR REGRESSION ]
+------------------------------------------------------------
+Evaluated on validation set (2024):
+
+  RMSE : 6.8101
+  MAE  : 5.3383
+  R²   : 0.0475
+
+The model explains only ~4.7% of the variance in temperature.
+Predictions are clustered in a narrow range (~5–9°C) regardless
+of the actual temperature, indicating the linear model fails to
+capture the non-linear seasonal and daily cycles in temperature.
+
+[ RESULTS — 2c: RANDOM FOREST REGRESSOR ]
+------------------------------------------------------------
+Configuration: n=10 trees, featureSubsetStrategy="auto"
+Evaluated on validation set (2024):
+
+  Significantly better than Linear Regression across all metrics.
+  (See validation output in RandomForest.scala execution log)
+
+[ RESULTS — 2d: MODEL COMPARISON ON TEST SET (2025) ]
+------------------------------------------------------------
+
+  Model               MSE      RMSE
+  ------------------- -------- -------
+  Linear Regression   51.6367  7.1859
+  Random Forest       15.5351  3.9415
+
+Random Forest is approximately 3x more accurate than Linear
+Regression on unseen 2025 data. Linear Regression predictions
+remain stuck around 9°C regardless of actual temperature,
+while Random Forest predictions are considerably closer to
+actual values (e.g. predicting ~0°C when actual is ~-1°C).
+
+The poor Linear Regression performance is explained by the
+highly non-linear nature of temperature — it follows both
+seasonal (monthly) and daily (hourly) cycles that a linear
+model cannot capture with a single hyperplane.
+
+[ RESULTS — 2e: HIGHEST CORRELATION WITH AIR TEMPERATURE ]
+------------------------------------------------------------
+Pearson correlation coefficients between each feature
+and airTemperature:
+
+  Feature              Correlation
+  -------------------- -----------
+  ceilingHeight        0.2369  ← HIGHEST
+  month                0.1763
+  dewPointTemp         0.1243
+  year                 0.1120
+  hour                 0.1101
+  visibility           0.0800
+  windDirection        0.0478
+  latitude             0.0389
+  elevation           -0.0863
+  day                  0.0120
+  windSpeed           -0.0036
+  longitude           -0.0084
+
+The attribute with the highest correlation with air temperature
+is ceilingHeight (0.2369). This makes physical sense: on warm
+sunny days the cloud ceiling is high or nonexistent, while cold
+cloudy days have low ceilings.
+
+All correlations are relatively low (max 0.24), which explains
+why both models struggled — no single feature has a strong
+linear relationship with temperature, and the underlying
+patterns are complex and non-linear.
+
+Note: latitude, longitude and elevation show near-zero
+correlation because we are working with a single fixed station,
+meaning those values barely vary across observations.
+
+[ RUNTIMES ]
+------------------------------------------------------------
+Script                  Runtime (s)
+----------------------- -----------
+parseNOAA.scala          2.79
+CreateDataFrame.scala    2.72
+LinearRegression.scala   6.02
+RandomForest.scala       5.99
+TestComparison.scala     1.37
+HighestCorrelation.scala 1.49
+----------------------- -----------
+Total                    20.38
+
+Runtimes are fast due to the relatively small dataset size
+(~900,000 records, 61 files) and local machine resources
+(12 cores, 32GB RAM). On the full multi-station NOAA dataset
+the HPC cluster would be necessary.
+
+[ HOW TO RUN THE CODE ]
+------------------------------------------------------------
+# Step 1: Download the NOAA files for station 065900
+(already downloaded inside the folder)
+bash download_noaa.sh
+
+# Step 2: Launch Spark and run all scripts
+spark-shell -i
+:load parseNOAA.scala
+:load CreateDataFrame.scala
+:load LinearRegression.scala
+:load RandomForest.scala
+:load TestComparison.scala
+:load HighestCorrelation.scala
+
+Each script depends on the variables defined by the previous
+one, so the order must be respected. All intermediate results
+are cached in memory to avoid reprocessing the input files.
+
+[ AI USED ]
+------------------------------------------------------------
+We used Claude.ai during the development of this
+exercise. The AI assisted with:
+  - Writing the LinearRegression and RandomForest pipelines
+  - Debugging spark-shell multi-line chaining issues
+  - Interpreting model metrics and results
+
+All generated code was reviewed, tested and adjusted manually
+to fix errors and verify correctness of results. The prompts
+we used are available as comments inside the code.
+
+============================================================
