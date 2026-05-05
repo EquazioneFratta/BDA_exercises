@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.naming.Context;
 
@@ -28,19 +30,35 @@ public class HadoopWordCount extends Configured implements Tool {
 		@Override
 		public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 
-			value.toString().toLowerCase();
 			/*
-			 * String[] splitLine = value.toString().split()
-			 * Starting from this line, write me the regex to split words as follow:
-			 * words with only lower case letters, including the 2 dashes "-" "_"
-			 * numbers consisting of sequences of digits 0-9 including "."",", plus at most
-			 * one leading dash "-"
+			 * starting from this code: 
+			 * String line = value.toString().toLowerCase();
+			 * 
+			 * for (String w : splitLine) {
+			 * word.set(w);
+			 * context.write(word, one);
+			 * }
+			 * modify the regex in order to consider only the following words and numbers:
+			 * words consisting only of sequences of lower-case letters a-z, including also
+			 * the two dashes - _ with a total length of at least 6 characters and at most
+			 * 24 characters per word; numbers consisting only of sequences of digits 0-9,
+			 * including also the two decimal separators ., plus at most one leading dash -,
+			 * with a total length of at least 4 characters and at most 16 characters per
+			 * number (for both of them simbols are included in the length constraint)
+			 * 
+			 * everything else must not be considered.
+			 * If there is something that you consider wrong, don't change my request and
+			 * just follow it.
 			 */
-			String[] splitLine = value.toString()
-					.split("[^a-z0-9.,_-]+|(?<=[a-z_-])(?=[0-9.-])|(?<=[0-9.,])(?=[a-z_])");
-			
 
-			for (String w : splitLine) {
+			String line = value.toString().toLowerCase();
+
+			String regex = "[a-z_\\-]{6,24}|-[\\d.,]{3,15}|[\\d.,]{4,16}";
+			Pattern pattern = Pattern.compile(regex);
+			Matcher matcher = pattern.matcher(line);
+
+			while (matcher.find()) {
+				String w = matcher.group();
 				word.set(w);
 				context.write(word, one);
 			}
