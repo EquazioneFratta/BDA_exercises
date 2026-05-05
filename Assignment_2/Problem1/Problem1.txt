@@ -87,12 +87,24 @@ Index   AgeCategory                       Precision     Recall         F1
 11      30-34                              0.121267   0.070806   0.089408
 12      25-29                              0.126908   0.044989   0.066428
 
-Conclusion: Both models struggle significantly to predict the 13-class 
-'AgeCategory' target accurately, with Random Forest performing only 
-marginally better than the GBT (OneVsRest) approach (~17.4% vs ~17.0% 
-accuracy). The models perform slightly better on the youngest (18-24) 
-and oldest (80+) brackets, but completely fail to classify the middle 
-age groups (e.g., 45-54).
+Conclusion & Hyperparameter Analysis: 
+Regarding the binary classification ('HeartDisease'), our grid search 
+revealed that shallow Decision Trees (maxDepth=6) generalized best, 
+achieving an internal validation AUC-ROC of ~0.61 (using entropy). 
+Deeper trees (maxDepth=12 and 24) suffered from severe overfitting, 
+causing the validation AUC-ROC to drop to ~0.50 - 0.55. Furthermore, 
+'entropy' consistently outperformed 'gini' as an impurity criterion 
+across all depths.
+
+Regarding the multiclass target ('AgeCategory'), both models struggle 
+significantly, with Random Forest performing only marginally better 
+than the GBT (OneVsRest) approach (~17.4% vs ~17.0% overall accuracy). 
+The per-class metrics reveal that the models perform slightly better 
+on the youngest (18-24) and oldest (80+) brackets, but completely fail 
+to classify the middle age groups (e.g., 45-54). Finally, attempting to 
+build deep Random Forests (maxDepth=24) with multiple trees generated 
+massive broadcast blocks (up to ~300 MB per task), causing severe RAM 
+and network congestion on the cluster.
 
 ----------------------------------------------------------------------
 4. PROMPTS
