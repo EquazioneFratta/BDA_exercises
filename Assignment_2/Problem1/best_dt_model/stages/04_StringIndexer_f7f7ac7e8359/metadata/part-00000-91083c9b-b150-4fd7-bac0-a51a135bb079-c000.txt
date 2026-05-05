@@ -1,0 +1,1 @@
+{"class":"org.apache.spark.ml.feature.StringIndexerModel","timestamp":1777479030224,"sparkVersion":"4.0.1","uid":"StringIndexer_f7f7ac7e8359","paramMap":{"outputCol":"DiffWalkingIndex","handleInvalid":"keep","inputCol":"DiffWalking"},"defaultParamMap":{"outputCol":"StringIndexer_f7f7ac7e8359__output","handleInvalid":"error","stringOrderType":"frequencyDesc"}}

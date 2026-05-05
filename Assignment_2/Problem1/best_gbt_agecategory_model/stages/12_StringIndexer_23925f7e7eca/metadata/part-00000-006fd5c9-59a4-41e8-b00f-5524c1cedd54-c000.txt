@@ -1,0 +1,1 @@
+{"class":"org.apache.spark.ml.feature.StringIndexerModel","timestamp":1777971013308,"sparkVersion":"4.0.1","uid":"StringIndexer_23925f7e7eca","paramMap":{"outputCol":"KidneyDiseaseIndex","inputCol":"KidneyDisease","handleInvalid":"keep"},"defaultParamMap":{"outputCol":"StringIndexer_23925f7e7eca__output","handleInvalid":"error","stringOrderType":"frequencyDesc"}}

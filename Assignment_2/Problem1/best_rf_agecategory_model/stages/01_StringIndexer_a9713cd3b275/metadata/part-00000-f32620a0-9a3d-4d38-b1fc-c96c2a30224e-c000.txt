@@ -1,0 +1,1 @@
+{"class":"org.apache.spark.ml.feature.StringIndexerModel","timestamp":1777931329478,"sparkVersion":"4.0.1","uid":"StringIndexer_a9713cd3b275","paramMap":{"outputCol":"HeartDiseaseIndex","inputCol":"HeartDisease","handleInvalid":"keep"},"defaultParamMap":{"outputCol":"StringIndexer_a9713cd3b275__output","stringOrderType":"frequencyDesc","handleInvalid":"error"}}

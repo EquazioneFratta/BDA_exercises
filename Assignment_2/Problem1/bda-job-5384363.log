@@ -1,0 +1,256 @@
+
+Lmod is automatically replacing "env/release/default" with
+"env/development/2024a".
+
+==============================
+SLURM NODE LIST: iris-[070-071]
+SLURM CPUs PER TASK: 28
+USING SPARK_HOME: /opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21
+RUNNING INNER LAUNCHER: /home/users/mfrattarola/spark-jobs/5384363/spark-start-all.sh
+==============================
+WORKER USING SPARK_HOME=/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21
+MASTER USING SPARK_HOME=/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21
+WORKER USING SPARK_HOME=/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21
+WARNING: Using incubator modules: jdk.incubator.vector
+WARNING: Using incubator modules: jdk.incubator.vector
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/05/05 10:47:32 INFO Worker: Started daemon with process name: 2107034@iris-071
+26/05/05 10:47:32 INFO SignalUtils: Registering signal handler for TERM
+26/05/05 10:47:32 INFO SignalUtils: Registering signal handler for HUP
+26/05/05 10:47:32 INFO SignalUtils: Registering signal handler for INT
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/05/05 10:47:32 INFO Worker: Started daemon with process name: 1664761@iris-070
+26/05/05 10:47:32 INFO SignalUtils: Registering signal handler for TERM
+26/05/05 10:47:32 INFO SignalUtils: Registering signal handler for HUP
+26/05/05 10:47:32 INFO SignalUtils: Registering signal handler for INT
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/05/05 10:47:32 INFO Master: Started daemon with process name: 1664760@iris-070
+26/05/05 10:47:32 INFO SignalUtils: Registering signal handler for TERM
+26/05/05 10:47:32 INFO SignalUtils: Registering signal handler for HUP
+26/05/05 10:47:32 INFO SignalUtils: Registering signal handler for INT
+26/05/05 10:47:32 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/05/05 10:47:32 INFO SecurityManager: Changing view acls to: mfrattarola
+26/05/05 10:47:32 INFO SecurityManager: Changing modify acls to: mfrattarola
+26/05/05 10:47:32 INFO SecurityManager: Changing view acls groups to: mfrattarola
+26/05/05 10:47:32 INFO SecurityManager: Changing modify acls groups to: mfrattarola
+26/05/05 10:47:32 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: mfrattarola groups with view permissions: EMPTY; users with modify permissions: mfrattarola; groups with modify permissions: EMPTY; RPC SSL disabled
+26/05/05 10:47:32 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/05/05 10:47:32 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/05/05 10:47:32 INFO SecurityManager: Changing view acls to: mfrattarola
+26/05/05 10:47:32 INFO SecurityManager: Changing modify acls to: mfrattarola
+26/05/05 10:47:32 INFO SecurityManager: Changing view acls groups to: mfrattarola
+26/05/05 10:47:32 INFO SecurityManager: Changing modify acls groups to: mfrattarola
+26/05/05 10:47:32 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: mfrattarola groups with view permissions: EMPTY; users with modify permissions: mfrattarola; groups with modify permissions: EMPTY; RPC SSL disabled
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/05/05 10:47:32 INFO SecurityManager: Changing view acls to: mfrattarola
+26/05/05 10:47:32 INFO SecurityManager: Changing modify acls to: mfrattarola
+26/05/05 10:47:32 INFO SecurityManager: Changing view acls groups to: mfrattarola
+26/05/05 10:47:32 INFO SecurityManager: Changing modify acls groups to: mfrattarola
+26/05/05 10:47:32 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: mfrattarola groups with view permissions: EMPTY; users with modify permissions: mfrattarola; groups with modify permissions: EMPTY; RPC SSL disabled
+26/05/05 10:47:32 INFO Utils: Successfully started service 'sparkWorker' on port 38861.
+26/05/05 10:47:32 INFO Worker: Worker decommissioning not enabled.
+26/05/05 10:47:32 INFO Worker: Starting Spark worker 172.17.6.71:38861 with 28 cores, 109.0 GiB RAM
+26/05/05 10:47:32 INFO Worker: Running Spark version 4.0.1
+26/05/05 10:47:32 INFO Worker: Spark home: /opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21
+26/05/05 10:47:32 INFO ResourceUtils: ==============================================================
+26/05/05 10:47:32 INFO ResourceUtils: No custom resources configured for spark.worker.
+26/05/05 10:47:32 INFO ResourceUtils: ==============================================================
+26/05/05 10:47:32 INFO Utils: Successfully started service 'sparkWorker' on port 32837.
+26/05/05 10:47:32 INFO Utils: Successfully started service 'sparkMaster' on port 7077.
+26/05/05 10:47:32 INFO Worker: Worker decommissioning not enabled.
+26/05/05 10:47:32 INFO JettyUtils: Start Jetty 0.0.0.0:9081 for WorkerUI
+26/05/05 10:47:32 INFO Master: Starting Spark master at spark://iris-070:7077
+26/05/05 10:47:32 INFO Master: Running Spark version 4.0.1
+26/05/05 10:47:32 INFO Utils: Successfully started service 'WorkerUI' on port 9081.
+26/05/05 10:47:32 INFO JettyUtils: Start Jetty 0.0.0.0:9080 for MasterUI
+26/05/05 10:47:32 INFO WorkerWebUI: Bound WorkerWebUI to 0.0.0.0, and started at http://node-71.iris-cluster.uni.lux:9081
+26/05/05 10:47:32 INFO Worker: Connecting to master iris-070:7077...
+26/05/05 10:47:32 INFO Worker: Starting Spark worker 172.17.6.70:32837 with 28 cores, 109.0 GiB RAM
+26/05/05 10:47:32 INFO Worker: Running Spark version 4.0.1
+26/05/05 10:47:32 INFO Worker: Spark home: /opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21
+26/05/05 10:47:32 INFO TransportClientFactory: Successfully created connection to iris-070/172.17.6.70:7077 after 24 ms (0 ms spent in bootstraps)
+26/05/05 10:47:32 INFO ResourceUtils: ==============================================================
+26/05/05 10:47:32 INFO ResourceUtils: No custom resources configured for spark.worker.
+26/05/05 10:47:32 INFO ResourceUtils: ==============================================================
+26/05/05 10:47:32 INFO Utils: Successfully started service 'MasterUI' on port 9080.
+26/05/05 10:47:33 INFO MasterWebUI: Bound MasterWebUI to 0.0.0.0, and started at http://node-70.iris-cluster.uni.lux:9080
+26/05/05 10:47:33 INFO JettyUtils: Start Jetty 0.0.0.0:9081 for WorkerUI
+26/05/05 10:47:33 INFO Utils: Successfully started service 'WorkerUI' on port 9081.
+26/05/05 10:47:33 INFO Master: Registering worker 172.17.6.71:38861 with 28 cores, 109.0 GiB RAM
+26/05/05 10:47:33 INFO Master: I have been elected leader! New state: ALIVE
+26/05/05 10:47:33 INFO WorkerWebUI: Bound WorkerWebUI to 0.0.0.0, and started at http://node-70.iris-cluster.uni.lux:9081
+26/05/05 10:47:33 INFO Worker: Connecting to master iris-070:7077...
+26/05/05 10:47:33 INFO TransportClientFactory: Successfully created connection to iris-070/172.17.6.70:7077 after 25 ms (0 ms spent in bootstraps)
+26/05/05 10:47:33 INFO Master: Registering worker 172.17.6.70:32837 with 28 cores, 109.0 GiB RAM
+26/05/05 10:47:33 INFO Worker: Successfully registered with master spark://iris-070:7077
+26/05/05 10:47:33 INFO Worker: Worker cleanup enabled; old application directories will be deleted in: /home/users/mfrattarola/spark-jobs/5384363
+==============================
+LAUNCHING SPARK SUBMIT: /opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/bin/spark-submit --conf spark.executor.memory=108544m --conf spark.worker.memory=108544m --conf spark.driver.memory=20g --conf spark.driver.maxResultSize=8g --conf spark.kryoserializer.buffer.max=512m --conf spark.serializer=org.apache.spark.serializer.KryoSerializer --master spark://iris-070:7077 problem1d_gbt_comparison.py
+==============================
+Spark Command: /opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Java/21.0.8/bin/java -cp hive-jackson/*:/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/conf/:/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/jars/slf4j-api-2.0.16.jar:/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/jars/* -Xmx20g -XX:+IgnoreUnrecognizedVMOptions --add-modules=jdk.incubator.vector --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/jdk.internal.ref=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.cs=ALL-UNNAMED --add-opens=java.base/sun.security.action=ALL-UNNAMED --add-opens=java.base/sun.util.calendar=ALL-UNNAMED --add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED -Djdk.reflect.useDirectMethodHandle=false -Dio.netty.tryReflectionSetAccessible=true -Dderby.connection.requireAuthentication=false org.apache.spark.deploy.SparkSubmit --master spark://iris-070:7077 --conf spark.executor.memory=108544m --conf spark.driver.memory=20g --conf spark.kryoserializer.buffer.max=512m --conf spark.driver.maxResultSize=8g --conf spark.serializer=org.apache.spark.serializer.KryoSerializer --conf spark.worker.memory=108544m problem1d_gbt_comparison.py
+========================================
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/05/05 10:47:38 INFO SparkContext: Running Spark version 4.0.1
+26/05/05 10:47:38 INFO SparkContext: OS info Linux, 4.18.0-553.44.1.el8_10.x86_64, amd64
+26/05/05 10:47:38 INFO SparkContext: Java version 21.0.8
+26/05/05 10:47:38 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/05/05 10:47:39 INFO ResourceUtils: ==============================================================
+26/05/05 10:47:39 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/05/05 10:47:39 INFO ResourceUtils: ==============================================================
+26/05/05 10:47:39 INFO SparkContext: Submitted application: Problem1d_GBT_Comparison
+26/05/05 10:47:39 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 108544, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/05/05 10:47:39 INFO ResourceProfile: Limiting resource is cpu
+26/05/05 10:47:39 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/05/05 10:47:39 INFO SecurityManager: Changing view acls to: mfrattarola
+26/05/05 10:47:39 INFO SecurityManager: Changing modify acls to: mfrattarola
+26/05/05 10:47:39 INFO SecurityManager: Changing view acls groups to: mfrattarola
+26/05/05 10:47:39 INFO SecurityManager: Changing modify acls groups to: mfrattarola
+26/05/05 10:47:39 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: mfrattarola groups with view permissions: EMPTY; users with modify permissions: mfrattarola; groups with modify permissions: EMPTY; RPC SSL disabled
+26/05/05 10:47:39 INFO Utils: Successfully started service 'sparkDriver' on port 36861.
+26/05/05 10:47:39 INFO SparkEnv: Registering MapOutputTracker
+26/05/05 10:47:39 INFO SparkEnv: Registering BlockManagerMaster
+26/05/05 10:47:39 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/05/05 10:47:39 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/05/05 10:47:39 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/05/05 10:47:39 INFO DiskBlockManager: Created local directory at /mnt/aiongpfs/users/mfrattarola/spark-jobs/5384363/blockmgr-58b0fba5-fe39-4a36-9a8e-54697ba9edbd
+26/05/05 10:47:39 INFO SparkEnv: Registering OutputCommitCoordinator
+26/05/05 10:47:39 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/05/05 10:47:39 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/05/05 10:47:39 INFO SecurityManager: Changing view acls to: mfrattarola
+26/05/05 10:47:39 INFO SecurityManager: Changing modify acls to: mfrattarola
+26/05/05 10:47:39 INFO SecurityManager: Changing view acls groups to: mfrattarola
+26/05/05 10:47:39 INFO SecurityManager: Changing modify acls groups to: mfrattarola
+26/05/05 10:47:39 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: mfrattarola groups with view permissions: EMPTY; users with modify permissions: mfrattarola; groups with modify permissions: EMPTY; RPC SSL disabled
+26/05/05 10:47:39 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://iris-070:7077...
+26/05/05 10:47:39 INFO TransportClientFactory: Successfully created connection to iris-070/172.17.6.70:7077 after 23 ms (0 ms spent in bootstraps)
+26/05/05 10:47:39 INFO Master: Registering app Problem1d_GBT_Comparison
+26/05/05 10:47:39 INFO Master: Registered app Problem1d_GBT_Comparison with ID app-20260505104739-0000
+26/05/05 10:47:39 INFO Master: Start scheduling for app app-20260505104739-0000 with rpId: 0
+26/05/05 10:47:39 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20260505104739-0000
+26/05/05 10:47:39 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 43639.
+26/05/05 10:47:39 INFO NettyBlockTransferService: Server created on node-70.iris-cluster.uni.lux:43639
+26/05/05 10:47:39 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/05/05 10:47:39 INFO Master: Launching executor app-20260505104739-0000/0 on worker worker-20260505104732-172.17.6.70-32837
+26/05/05 10:47:39 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, node-70.iris-cluster.uni.lux, 43639, None)
+26/05/05 10:47:39 INFO BlockManagerMasterEndpoint: Registering block manager node-70.iris-cluster.uni.lux:43639 with 11.8 GiB RAM, BlockManagerId(driver, node-70.iris-cluster.uni.lux, 43639, None)
+26/05/05 10:47:39 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, node-70.iris-cluster.uni.lux, 43639, None)
+26/05/05 10:47:39 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, node-70.iris-cluster.uni.lux, 43639, None)
+26/05/05 10:47:39 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260505104739-0000/0 on worker-20260505104732-172.17.6.70-32837 (172.17.6.70:32837) with 28 core(s)
+26/05/05 10:47:39 INFO StandaloneSchedulerBackend: Granted executor ID app-20260505104739-0000/0 on hostPort 172.17.6.70:32837 with 28 core(s), 106.0 GiB RAM
+26/05/05 10:47:39 INFO Worker: Asked to launch executor app-20260505104739-0000/0 for Problem1d_GBT_Comparison
+26/05/05 10:47:40 INFO SecurityManager: Changing view acls to: mfrattarola
+26/05/05 10:47:40 INFO SecurityManager: Changing modify acls to: mfrattarola
+26/05/05 10:47:40 INFO SecurityManager: Changing view acls groups to: mfrattarola
+26/05/05 10:47:40 INFO SecurityManager: Changing modify acls groups to: mfrattarola
+26/05/05 10:47:40 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: mfrattarola groups with view permissions: EMPTY; users with modify permissions: mfrattarola; groups with modify permissions: EMPTY; RPC SSL disabled
+26/05/05 10:47:40 INFO ExecutorRunner: Launch command: "/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Java/21.0.8/bin/java" "-cp" "/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/conf/:/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/jars/slf4j-api-2.0.16.jar:/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/jars/*" "-Xmx108544M" "-Dspark.driver.port=36861" "-Djava.net.preferIPv6Addresses=false" "-XX:+IgnoreUnrecognizedVMOptions" "--add-modules=jdk.incubator.vector" "--add-opens=java.base/java.lang=ALL-UNNAMED" "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED" "--add-opens=java.base/java.lang.reflect=ALL-UNNAMED" "--add-opens=java.base/java.io=ALL-UNNAMED" "--add-opens=java.base/java.net=ALL-UNNAMED" "--add-opens=java.base/java.nio=ALL-UNNAMED" "--add-opens=java.base/java.util=ALL-UNNAMED" "--add-opens=java.base/java.util.concurrent=ALL-UNNAMED" "--add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.ref=ALL-UNNAMED" "--add-opens=java.base/sun.nio.ch=ALL-UNNAMED" "--add-opens=java.base/sun.nio.cs=ALL-UNNAMED" "--add-opens=java.base/sun.security.action=ALL-UNNAMED" "--add-opens=java.base/sun.util.calendar=ALL-UNNAMED" "--add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED" "-Djdk.reflect.useDirectMethodHandle=false" "-Dio.netty.tryReflectionSetAccessible=true" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@node-70.iris-cluster.uni.lux:36861" "--executor-id" "0" "--hostname" "172.17.6.70" "--cores" "28" "--app-id" "app-20260505104739-0000" "--worker-url" "spark://Worker@172.17.6.70:32837" "--resourceProfileId" "0"
+26/05/05 10:47:40 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+26/05/05 10:47:40 INFO Master: Start scheduling for app app-20260505104739-0000 with rpId: 0
+26/05/05 10:47:40 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260505104739-0000/0 is now RUNNING
+26/05/05 10:47:41 INFO Worker: Retrying connection to master (attempt # 1)
+26/05/05 10:47:41 INFO Worker: Connecting to master iris-070:7077...
+26/05/05 10:47:41 INFO Master: Registering worker 172.17.6.71:38861 with 28 cores, 109.0 GiB RAM
+26/05/05 10:47:41 INFO Master: Start scheduling for app app-20260505104739-0000 with rpId: 0
+26/05/05 10:47:41 INFO Master: Launching executor app-20260505104739-0000/1 on worker worker-20260505104732-172.17.6.71-38861
+26/05/05 10:47:41 INFO Worker: Successfully registered with master spark://iris-070:7077
+26/05/05 10:47:41 INFO Worker: Worker cleanup enabled; old application directories will be deleted in: /home/users/mfrattarola/spark-jobs/5384363
+26/05/05 10:47:41 INFO Worker: Asked to launch executor app-20260505104739-0000/1 for Problem1d_GBT_Comparison
+26/05/05 10:47:41 INFO SecurityManager: Changing view acls to: mfrattarola
+26/05/05 10:47:41 INFO SecurityManager: Changing modify acls to: mfrattarola
+26/05/05 10:47:41 INFO SecurityManager: Changing view acls groups to: mfrattarola
+26/05/05 10:47:41 INFO SecurityManager: Changing modify acls groups to: mfrattarola
+26/05/05 10:47:41 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: mfrattarola groups with view permissions: EMPTY; users with modify permissions: mfrattarola; groups with modify permissions: EMPTY; RPC SSL disabled
+26/05/05 10:47:42 INFO ExecutorRunner: Launch command: "/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Java/21.0.8/bin/java" "-cp" "/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/conf/:/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/jars/slf4j-api-2.0.16.jar:/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/jars/*" "-Xmx108544M" "-Dspark.driver.port=36861" "-Djava.net.preferIPv6Addresses=false" "-XX:+IgnoreUnrecognizedVMOptions" "--add-modules=jdk.incubator.vector" "--add-opens=java.base/java.lang=ALL-UNNAMED" "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED" "--add-opens=java.base/java.lang.reflect=ALL-UNNAMED" "--add-opens=java.base/java.io=ALL-UNNAMED" "--add-opens=java.base/java.net=ALL-UNNAMED" "--add-opens=java.base/java.nio=ALL-UNNAMED" "--add-opens=java.base/java.util=ALL-UNNAMED" "--add-opens=java.base/java.util.concurrent=ALL-UNNAMED" "--add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.ref=ALL-UNNAMED" "--add-opens=java.base/sun.nio.ch=ALL-UNNAMED" "--add-opens=java.base/sun.nio.cs=ALL-UNNAMED" "--add-opens=java.base/sun.security.action=ALL-UNNAMED" "--add-opens=java.base/sun.util.calendar=ALL-UNNAMED" "--add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED" "-Djdk.reflect.useDirectMethodHandle=false" "-Dio.netty.tryReflectionSetAccessible=true" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@node-70.iris-cluster.uni.lux:36861" "--executor-id" "1" "--hostname" "172.17.6.71" "--cores" "28" "--app-id" "app-20260505104739-0000" "--worker-url" "spark://Worker@172.17.6.71:38861" "--resourceProfileId" "0"
+26/05/05 10:47:42 INFO Master: Start scheduling for app app-20260505104739-0000 with rpId: 0
+
+Loading saved RF model …
+Generating RF predictions on test set …
+26/05/05 10:47:58 WARN DAGScheduler: Broadcasting large task binary with size 17.4 MiB
+/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/python/lib/pyspark.zip/pyspark/sql/context.py:157: FutureWarning: Deprecated in 3.0.0. Use SparkSession.builder.getOrCreate() instead.
+26/05/05 10:48:02 WARN DAGScheduler: Broadcasting large task binary with size 17.4 MiB
+
+======================================================================
+RF OVERALL Metrics (loaded from saved model)
+======================================================================
+26/05/05 10:48:03 WARN DAGScheduler: Broadcasting large task binary with size 17.4 MiB
+  Overall Accuracy             : 0.174357
+  Weighted Precision           : 0.163634
+  Weighted Recall              : 0.174357
+  Weighted F1-Score            : 0.143305
+  Weighted False Positive Rate : 0.079234
+
+Fitting GBT (OneVsRest) pipeline …
+26/05/05 10:48:09 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+srun: Job 5384363 step creation temporarily disabled, retrying (Requested nodes are busy)
+GBT model saved.
+26/05/05 10:50:26 WARN DAGScheduler: Broadcasting large task binary with size 2.3 MiB
+26/05/05 10:50:35 WARN DAGScheduler: Broadcasting large task binary with size 2.3 MiB
+
+======================================================================
+GBT (OneVsRest) OVERALL Metrics
+======================================================================
+26/05/05 10:50:35 WARN DAGScheduler: Broadcasting large task binary with size 2.4 MiB
+  Overall Accuracy             : 0.170691
+  Weighted Precision           : 0.154870
+  Weighted Recall              : 0.170691
+  Weighted F1-Score            : 0.133581
+  Weighted False Positive Rate : 0.080526
+
+======================================================================
+MODEL COMPARISON  |  Test-Set Overall Metrics
+======================================================================
+Metric                                Random Forest       GBT (OvR)
+--------------------------------------------------------------------
+Accuracy                                   0.174357        0.170691
+Weighted Precision                         0.163634        0.154870
+Weighted Recall                            0.174357        0.170691
+Weighted F1-Score                          0.143305        0.133581
+Weighted False Positive Rate               0.079234        0.080526
+======================================================================
+
+======================================================================
+GBT (OneVsRest) PER-CLASS Metrics
+======================================================================
+Index   AgeCategory                       Precision     Recall         F1
+------------------------------------------------------------------------
+0       65-69                              0.136492   0.323097   0.191911
+1       60-64                              0.130226   0.224542   0.164847
+2       70-74                              0.197799   0.200660   0.199219
+3       55-59                              0.119773   0.050008   0.070557
+4       50-54                              0.111498   0.012633   0.022695
+5       80 or older                        0.289504   0.421937   0.343395
+6       45-49                              0.121739   0.003229   0.006291
+7       75-79                              0.174877   0.016296   0.029813
+8       18-24                              0.210053   0.604027   0.311708
+9       40-44                              0.136421   0.026411   0.044255
+10      35-39                              0.137304   0.108095   0.120961
+11      30-34                              0.121267   0.070806   0.089408
+12      25-29                              0.126908   0.044989   0.066428
+======================================================================
+26/05/05 10:50:35 INFO Master: Received unregister request from application app-20260505104739-0000
+26/05/05 10:50:35 INFO Master: Removing app app-20260505104739-0000
+26/05/05 10:50:35 INFO Worker: Asked to kill executor app-20260505104739-0000/0
+26/05/05 10:50:35 INFO ExecutorRunner: Runner thread for executor app-20260505104739-0000/0 interrupted
+26/05/05 10:50:35 INFO ExecutorRunner: Killing process!
+26/05/05 10:50:35 INFO Worker: Asked to kill executor app-20260505104739-0000/1
+26/05/05 10:50:35 INFO ExecutorRunner: Runner thread for executor app-20260505104739-0000/1 interrupted
+26/05/05 10:50:35 INFO ExecutorRunner: Killing process!
+26/05/05 10:50:35 INFO Master: 172.17.6.70:35930 got disassociated, removing it.
+26/05/05 10:50:35 INFO Master: node-70.iris-cluster.uni.lux:36861 got disassociated, removing it.
+26/05/05 10:50:36 WARN Master: Got status update for unknown executor app-20260505104739-0000/0
+26/05/05 10:50:36 INFO Worker: Executor app-20260505104739-0000/0 finished with state KILLED message Runner thread for executor app-20260505104739-0000/0 interrupted exitStatus 143
+26/05/05 10:50:36 INFO ExternalShuffleBlockResolver: Clean up non-shuffle and non-RDD files associated with the finished executor 0
+26/05/05 10:50:36 INFO ExternalShuffleBlockResolver: Executor is not registered (appId=app-20260505104739-0000, execId=0)
+26/05/05 10:50:36 INFO Worker: Cleaning up local directories for application app-20260505104739-0000
+26/05/05 10:50:36 INFO ExternalShuffleBlockResolver: Application app-20260505104739-0000 removed, cleanupLocalDirs = true
+26/05/05 10:50:36 WARN Master: Got status update for unknown executor app-20260505104739-0000/1
+26/05/05 10:50:36 INFO Worker: Executor app-20260505104739-0000/1 finished with state KILLED message Runner thread for executor app-20260505104739-0000/1 interrupted exitStatus 143
+26/05/05 10:50:36 INFO ExternalShuffleBlockResolver: Clean up non-shuffle and non-RDD files associated with the finished executor 1
+26/05/05 10:50:36 INFO ExternalShuffleBlockResolver: Executor is not registered (appId=app-20260505104739-0000, execId=1)
+26/05/05 10:50:36 INFO Worker: Cleaning up local directories for application app-20260505104739-0000
+26/05/05 10:50:36 INFO ExternalShuffleBlockResolver: Application app-20260505104739-0000 removed, cleanupLocalDirs = true
+====== Cleaning up: SPARK_CLEAN_TEMP=1

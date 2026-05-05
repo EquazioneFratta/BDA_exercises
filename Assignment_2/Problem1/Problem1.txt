@@ -1,0 +1,158 @@
+======================================================================
+BIG DATA ANALYTICS - EXERCISE SHEET #2
+PROBLEM 1 SUMMARY
+======================================================================
+Group Members: Frattarola, Orusa, Gao
+Group ID: 8
+
+----------------------------------------------------------------------
+1. AI USAGE DECLARATION
+----------------------------------------------------------------------
+Following the University Guidelines for the usage of Generative AI, we 
+declare the following:
+* Platform used: Claude
+* Usage summary: We used the AI to draft the initial structure of the 
+  exercise, and subsequently performed manual debugging and corrections.
+* Prompts are at the end of this file.
+
+----------------------------------------------------------------------
+2. HOW TO RUN THE CODE (IRIS HPC CLUSTER)
+----------------------------------------------------------------------
+Execute the scripts in the following order:
+
+# Task 1(a), 1(b), and 1(c) - Decision Trees (Binary Target)
+sbatch --mem=110G launch-spark-submit.sh problem1a_load_heart_disease.py
+
+# Task 1(d) Part 1 - Random Forest (Multiclass Target)
+sbatch --mem=110G launch-spark-submit.sh problem1d_rf_agecategory.py
+
+# Task 1(d) Part 2 - GBT Comparison (Optional)
+sbatch --mem=110G launch-spark-submit.sh problem1d_gbt_comparison.py
+
+----------------------------------------------------------------------
+3. KEY RESULTS & RUNTIMES
+----------------------------------------------------------------------
+[Dataset Summary]
+* Total rows loaded: 319,795
+* Training rows (80%): 255,972
+* Testing rows (20%): 63,823
+
+[Task 1(b) & 1(c): Decision Tree on 'HeartDisease']
+* Total Script Runtime: ~10 minutes
+* CrossValidator (5-fold, 90 jobs) Runtime: ~6.5 minutes
+* TrainValidationSplit (18 jobs) Runtime: ~1 minute
+* Performance Comparison (Test Set):
+
+Metric                        CrossValidator                TVS
+---------------------------------------------------------------
+AUC-ROC                             0.521251           0.521251
+AUC-PR                              0.335234           0.335234
+Accuracy                            0.914169           0.914169
+Precision                           0.561947           0.561947
+Recall                              0.045898           0.045898
+
+[Task 1(d): Random Forest & GBT on 'AgeCategory']
+* Random Forest CV Runtime (270 jobs): ~2 hours 55 minutes*
+  (*Note: The SLURM logs indicate severe cluster congestion during this 
+  job with continuous "Requested nodes are busy" warnings, significantly 
+  inflating the wall-clock time. Additionally, several challenges were 
+  encountered while executing the script due to the massive memory 
+  requirements of the deepest trees).
+* GBT (OneVsRest) Training Runtime: ~2.5 minutes
+* Performance Comparison (Test Set):
+
+Metric                                Random Forest       GBT (OvR)
+--------------------------------------------------------------------
+Accuracy                                   0.174357        0.170691
+Weighted Precision                         0.163634        0.154870
+Weighted Recall                            0.174357        0.170691
+Weighted F1-Score                          0.143305        0.133581
+Weighted False Positive Rate               0.079234        0.080526
+
+* GBT (OneVsRest) PER-CLASS Metrics:
+
+Index   AgeCategory                       Precision     Recall         F1
+------------------------------------------------------------------------
+0       65-69                              0.136492   0.323097   0.191911
+1       60-64                              0.130226   0.224542   0.164847
+2       70-74                              0.197799   0.200660   0.199219
+3       55-59                              0.119773   0.050008   0.070557
+4       50-54                              0.111498   0.012633   0.022695
+5       80 or older                        0.289504   0.421937   0.343395
+6       45-49                              0.121739   0.003229   0.006291
+7       75-79                              0.174877   0.016296   0.029813
+8       18-24                              0.210053   0.604027   0.311708
+9       40-44                              0.136421   0.026411   0.044255
+10      35-39                              0.137304   0.108095   0.120961
+11      30-34                              0.121267   0.070806   0.089408
+12      25-29                              0.126908   0.044989   0.066428
+
+Conclusion: Both models struggle significantly to predict the 13-class 
+'AgeCategory' target accurately, with Random Forest performing only 
+marginally better than the GBT (OneVsRest) approach (~17.4% vs ~17.0% 
+accuracy). The models perform slightly better on the youngest (18-24) 
+and oldest (80+) brackets, but completely fail to classify the middle 
+age groups (e.g., 45-54).
+
+----------------------------------------------------------------------
+4. PROMPTS
+----------------------------------------------------------------------
+1. {Act as an expert PySpark developer. I am working on a university Big Data Analytics assignment and I need you to write a clean, standalone Python script (.py) meant to be executed as a non-interactive batch job on an HPC cluster via SLURM. Please do not generate a Jupyter Notebook format.
+
+Context:
+We are using the "Key Indicators of Heart Disease" dataset from Kaggle. It contains about 320K records and 18 variables (9 booleans, 5 strings, and 4 decimals). The target label is "HeartDisease" (Yes/No).
+
+Your Task (Task A):
+
+Initialize a SparkSession.
+
+Explicitly define a proper schema using StructType and StructField with meaningful attribute names and the correct datatypes for this specific dataset (you should know the structure of this standard Kaggle dataset).
+
+Load the CSV file into a Spark DataFrame using the explicit schema you just defined.
+
+Since I don't have the exact file path yet, please use a clearly marked variable at the top of the script like DATA_PATH = "<INSERT_CSV_PATH_HERE>".
+
+Add a simple df.printSchema() and df.show(5) to verify the loading process.
+
+Please output only the documented PySpark code and a brief explanation of the schema choices.}
+
+2. {I now need you to write the code ONLY for Task b(i) of my assignment. Do not write the code for b(ii), b(iii), or b(iv). Do not implement `CrossValidator`, hyperparameter grids, or evaluation metrics yet.
+Your Task - b(i):
+
+1. Create a random split of the `df` DataFrame into 80% training data and 20% testing data.
+2. Define a basic ML `Pipeline` for a Decision Tree classifier. Specifically:
+   * Create `StringIndexer` stages for all the categorical/boolean feature columns (e.g., 'Smoking', 'Sex', etc.) and for the target label ('HeartDisease').
+   * Create a `VectorAssembler` stage to combine the indexed categorical features and the existing numeric features into a single vector.
+   * Add a `DecisionTreeClassifier` as the final stage.
+3. Assemble all these stages into a `pyspark.ml.Pipeline`.
+4. Fit this basic pipeline on the 80% training split to train the initial model (as requested by the assignment to verify it works).
+Please output only the continuation of the Python script with clear, step-by-step comments. Do not rewrite the code from Task A.}
+
+3. {Now, please write the code for Tasks b(iii) and b(iv) to complete section (b).
+
+Your Task - b(iii) & b(iv):
+
+Fit the Model: Call .fit() on the cross_validator using the train_df. (Add a print statement warning that this step is computationally expensive).
+
+Save the Best Model: Extract the best model from the fitted CrossValidator (cv_model.bestModel) and save it to a local directory named "./best_dt_model" (make sure to handle overwriting if the directory exists, e.g., by using .write().overwrite().save()).
+
+Predictions: Use the best model to transform the test_df (the 20% split from b(i)) to get the predictions.
+
+Evaluate with BinaryClassificationMetrics: The assignment strictly requires using pyspark.mllib.evaluation.BinaryClassificationMetrics. You must convert the resulting DataFrame of predictions into an RDD of (prediction, label) pairs cast as floats.
+
+Print Metrics: Pass this RDD to BinaryClassificationMetrics and print the following metrics over the two possible labels of Heart Disease on the test set:
+
+Accuracy (you may need to calculate this manually from the RDD if BinaryClassificationMetrics doesn't provide a direct .accuracy() method, or use a workaround as the MLLib API primarily focuses on PR/ROC).
+
+Precision (using metrics.precisionByThreshold() or similar, or just manually calculating it from the RDD if needed for a simple binary output).
+
+Recall.
+
+Please provide the clean PySpark code to append to my existing script.}
+
+4. {I am working on a PySpark assignment for a Big Data Analytics course running on a SLURM HPC cluster. I have already completed Problem 1(a) and 1(b) in my current script, where I predicted "HeartDisease" using a `DecisionTreeClassifier` and a `CrossValidator`.
+I now need you to write the code for Problem 1(c) and Problem 1(d). Since these jobs are computationally expensive, please write the code modularly so I can append 1(c) to my current script, but treat 1(d) as a distinct section (or suggest how to isolate it) because it changes the target variable.
+Here are the exact instructions from the assignment:
+For Problem 1(c): "Replace the CrossValidator API in your pipeline by the simpler TrainValidationSplit API (using trainRatio=0.8), and repeat Steps (i)-(iv) from above to compare the results obtained from the two APIs." Requirements for 1(c): Use the exact same hyperparameter grid (`entropy`/`gini`, maxDepth `6,12,24`, maxBins `20,50,100`) and the same 80/20 train/test split strategy as before. Evaluate the best model on the test set.
+For Problem 1(d): "Finally, switch to AgeCategory as your target label and repeat the methodology described in (b) by training a Random Forest classifier with the MulticlassMetrics API instead of using a single Decision Tree classifier with the BinaryClassificationMetrics API. Investigate the additional range of numTrees 5, 10, 20 to also find the best amount of trees (using 'automatic' training mode) in your Random Forest classifier." Requirements for 1(d): > 1. Set "AgeCategory" as the new target label (meaning it's now a multiclass problem, so drop the old binary setup). 2. Use `RandomForestClassifier`. 3. Add `numTrees` [5, 10, 20] to the hyperparameter grid, along with reasonable depth/bins/impurity if applicable. 4. Use `CrossValidator` with 5 folds. 5. Evaluate the final best model on the test set using PySpark's `MulticlassMetrics` API (compute accuracy, and perhaps precision/recall per class if easy to display).
+Please provide the PySpark code to append to my existing pipeline for 1(c), and the completely new setup required for 1(d). Keep performance and SLURM execution constraints in mind (e.g., clear caching if necessary, print clear separator logs).}

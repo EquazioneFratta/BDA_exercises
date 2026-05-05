@@ -1,0 +1,802 @@
+
+Lmod is automatically replacing "env/release/default" with
+"env/development/2024a".
+
+==============================
+SLURM NODE LIST: iris-[084-085]
+SLURM CPUs PER TASK: 28
+USING SPARK_HOME: /opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21
+RUNNING INNER LAUNCHER: /home/users/mfrattarola/spark-jobs/5375996/spark-start-all.sh
+==============================
+MASTER USING SPARK_HOME=/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21
+WORKER USING SPARK_HOME=/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21
+WORKER USING SPARK_HOME=/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21
+WARNING: Using incubator modules: jdk.incubator.vector
+WARNING: Using incubator modules: jdk.incubator.vector
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/04/29 18:02:29 INFO Master: Started daemon with process name: 2494384@iris-084
+26/04/29 18:02:29 INFO Worker: Started daemon with process name: 1577498@iris-085
+26/04/29 18:02:29 INFO SignalUtils: Registering signal handler for TERM
+26/04/29 18:02:29 INFO SignalUtils: Registering signal handler for HUP
+26/04/29 18:02:29 INFO SignalUtils: Registering signal handler for INT
+26/04/29 18:02:29 INFO SignalUtils: Registering signal handler for TERM
+26/04/29 18:02:29 INFO SignalUtils: Registering signal handler for HUP
+26/04/29 18:02:29 INFO SignalUtils: Registering signal handler for INT
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/04/29 18:02:29 INFO Worker: Started daemon with process name: 2494385@iris-084
+26/04/29 18:02:29 INFO SignalUtils: Registering signal handler for TERM
+26/04/29 18:02:29 INFO SignalUtils: Registering signal handler for HUP
+26/04/29 18:02:29 INFO SignalUtils: Registering signal handler for INT
+26/04/29 18:02:29 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/04/29 18:02:29 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/04/29 18:02:29 INFO SecurityManager: Changing view acls to: mfrattarola
+26/04/29 18:02:29 INFO SecurityManager: Changing modify acls to: mfrattarola
+26/04/29 18:02:29 INFO SecurityManager: Changing view acls groups to: mfrattarola
+26/04/29 18:02:29 INFO SecurityManager: Changing modify acls groups to: mfrattarola
+26/04/29 18:02:29 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: mfrattarola groups with view permissions: EMPTY; users with modify permissions: mfrattarola; groups with modify permissions: EMPTY; RPC SSL disabled
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/04/29 18:02:29 INFO SecurityManager: Changing view acls to: mfrattarola
+26/04/29 18:02:29 INFO SecurityManager: Changing modify acls to: mfrattarola
+26/04/29 18:02:29 INFO SecurityManager: Changing view acls groups to: mfrattarola
+26/04/29 18:02:29 INFO SecurityManager: Changing modify acls groups to: mfrattarola
+26/04/29 18:02:29 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: mfrattarola groups with view permissions: EMPTY; users with modify permissions: mfrattarola; groups with modify permissions: EMPTY; RPC SSL disabled
+26/04/29 18:02:29 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/04/29 18:02:29 INFO SecurityManager: Changing view acls to: mfrattarola
+26/04/29 18:02:29 INFO SecurityManager: Changing modify acls to: mfrattarola
+26/04/29 18:02:29 INFO SecurityManager: Changing view acls groups to: mfrattarola
+26/04/29 18:02:29 INFO SecurityManager: Changing modify acls groups to: mfrattarola
+26/04/29 18:02:29 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: mfrattarola groups with view permissions: EMPTY; users with modify permissions: mfrattarola; groups with modify permissions: EMPTY; RPC SSL disabled
+26/04/29 18:02:29 INFO Utils: Successfully started service 'sparkMaster' on port 7077.
+26/04/29 18:02:29 INFO Utils: Successfully started service 'sparkWorker' on port 40139.
+26/04/29 18:02:29 INFO Worker: Worker decommissioning not enabled.
+26/04/29 18:02:29 INFO Master: Starting Spark master at spark://iris-084:7077
+26/04/29 18:02:29 INFO Master: Running Spark version 4.0.1
+26/04/29 18:02:29 INFO Utils: Successfully started service 'sparkWorker' on port 33101.
+26/04/29 18:02:29 INFO Worker: Worker decommissioning not enabled.
+26/04/29 18:02:29 INFO JettyUtils: Start Jetty 0.0.0.0:9080 for MasterUI
+26/04/29 18:02:29 INFO Worker: Starting Spark worker 172.17.6.85:40139 with 28 cores, 111.0 GiB RAM
+26/04/29 18:02:29 INFO Worker: Running Spark version 4.0.1
+26/04/29 18:02:29 INFO Worker: Spark home: /opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21
+26/04/29 18:02:29 INFO ResourceUtils: ==============================================================
+26/04/29 18:02:29 INFO ResourceUtils: No custom resources configured for spark.worker.
+26/04/29 18:02:29 INFO ResourceUtils: ==============================================================
+26/04/29 18:02:29 INFO Utils: Successfully started service 'MasterUI' on port 9080.
+26/04/29 18:02:29 INFO JettyUtils: Start Jetty 0.0.0.0:9081 for WorkerUI
+26/04/29 18:02:29 INFO MasterWebUI: Bound MasterWebUI to 0.0.0.0, and started at http://node-84.iris-cluster.uni.lux:9080
+26/04/29 18:02:29 INFO Worker: Starting Spark worker 172.17.6.84:33101 with 28 cores, 111.0 GiB RAM
+26/04/29 18:02:29 INFO Worker: Running Spark version 4.0.1
+26/04/29 18:02:29 INFO Worker: Spark home: /opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21
+26/04/29 18:02:29 INFO ResourceUtils: ==============================================================
+26/04/29 18:02:29 INFO ResourceUtils: No custom resources configured for spark.worker.
+26/04/29 18:02:29 INFO ResourceUtils: ==============================================================
+26/04/29 18:02:30 INFO Utils: Successfully started service 'WorkerUI' on port 9081.
+26/04/29 18:02:30 INFO JettyUtils: Start Jetty 0.0.0.0:9081 for WorkerUI
+26/04/29 18:02:30 INFO WorkerWebUI: Bound WorkerWebUI to 0.0.0.0, and started at http://node-85.iris-cluster.uni.lux:9081
+26/04/29 18:02:30 INFO Worker: Connecting to master iris-084:7077...
+26/04/29 18:02:30 INFO Master: I have been elected leader! New state: ALIVE
+26/04/29 18:02:30 INFO Utils: Successfully started service 'WorkerUI' on port 9081.
+26/04/29 18:02:30 INFO TransportClientFactory: Successfully created connection to iris-084/172.17.6.84:7077 after 26 ms (0 ms spent in bootstraps)
+26/04/29 18:02:30 INFO WorkerWebUI: Bound WorkerWebUI to 0.0.0.0, and started at http://node-84.iris-cluster.uni.lux:9081
+26/04/29 18:02:30 INFO Worker: Connecting to master iris-084:7077...
+26/04/29 18:02:30 INFO TransportClientFactory: Successfully created connection to iris-084/172.17.6.84:7077 after 25 ms (0 ms spent in bootstraps)
+26/04/29 18:02:30 INFO Master: Registering worker 172.17.6.85:40139 with 28 cores, 111.0 GiB RAM
+26/04/29 18:02:30 INFO Master: Registering worker 172.17.6.84:33101 with 28 cores, 111.0 GiB RAM
+26/04/29 18:02:30 INFO Worker: Successfully registered with master spark://iris-084:7077
+26/04/29 18:02:30 INFO Worker: Worker cleanup enabled; old application directories will be deleted in: /home/users/mfrattarola/spark-jobs/5375996
+26/04/29 18:02:30 INFO Worker: Successfully registered with master spark://iris-084:7077
+26/04/29 18:02:30 INFO Worker: Worker cleanup enabled; old application directories will be deleted in: /home/users/mfrattarola/spark-jobs/5375996
+==============================
+LAUNCHING SPARK SUBMIT: /opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/bin/spark-submit --conf spark.executor.memory=110592m --conf spark.worker.memory=110592m --master spark://iris-084:7077 problem1a_load_heart_disease.py
+==============================
+Spark Command: /opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Java/21.0.8/bin/java -cp hive-jackson/*:/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/conf/:/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/jars/slf4j-api-2.0.16.jar:/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/jars/* -Xmx1g -XX:+IgnoreUnrecognizedVMOptions --add-modules=jdk.incubator.vector --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/jdk.internal.ref=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.cs=ALL-UNNAMED --add-opens=java.base/sun.security.action=ALL-UNNAMED --add-opens=java.base/sun.util.calendar=ALL-UNNAMED --add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED -Djdk.reflect.useDirectMethodHandle=false -Dio.netty.tryReflectionSetAccessible=true -Dderby.connection.requireAuthentication=false org.apache.spark.deploy.SparkSubmit --master spark://iris-084:7077 --conf spark.executor.memory=110592m --conf spark.worker.memory=110592m problem1a_load_heart_disease.py
+========================================
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/04/29 18:02:35 INFO SparkContext: Running Spark version 4.0.1
+26/04/29 18:02:35 INFO SparkContext: OS info Linux, 4.18.0-553.44.1.el8_10.x86_64, amd64
+26/04/29 18:02:35 INFO SparkContext: Java version 21.0.8
+26/04/29 18:02:35 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/04/29 18:02:35 INFO ResourceUtils: ==============================================================
+26/04/29 18:02:35 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/04/29 18:02:35 INFO ResourceUtils: ==============================================================
+26/04/29 18:02:35 INFO SparkContext: Submitted application: Problem1a_HeartDisease_LoadCSV
+26/04/29 18:02:35 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 110592, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/04/29 18:02:35 INFO ResourceProfile: Limiting resource is cpu
+26/04/29 18:02:35 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/04/29 18:02:35 INFO SecurityManager: Changing view acls to: mfrattarola
+26/04/29 18:02:35 INFO SecurityManager: Changing modify acls to: mfrattarola
+26/04/29 18:02:35 INFO SecurityManager: Changing view acls groups to: mfrattarola
+26/04/29 18:02:35 INFO SecurityManager: Changing modify acls groups to: mfrattarola
+26/04/29 18:02:35 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: mfrattarola groups with view permissions: EMPTY; users with modify permissions: mfrattarola; groups with modify permissions: EMPTY; RPC SSL disabled
+26/04/29 18:02:35 INFO Utils: Successfully started service 'sparkDriver' on port 40629.
+26/04/29 18:02:35 INFO SparkEnv: Registering MapOutputTracker
+26/04/29 18:02:35 INFO SparkEnv: Registering BlockManagerMaster
+26/04/29 18:02:35 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/04/29 18:02:35 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/04/29 18:02:35 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/04/29 18:02:35 INFO DiskBlockManager: Created local directory at /mnt/aiongpfs/users/mfrattarola/spark-jobs/5375996/blockmgr-4fe9e402-d2da-4b04-ae1d-74cbc6004e06
+26/04/29 18:02:36 INFO SparkEnv: Registering OutputCommitCoordinator
+26/04/29 18:02:36 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/04/29 18:02:36 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/04/29 18:02:36 INFO SecurityManager: Changing view acls to: mfrattarola
+26/04/29 18:02:36 INFO SecurityManager: Changing modify acls to: mfrattarola
+26/04/29 18:02:36 INFO SecurityManager: Changing view acls groups to: mfrattarola
+26/04/29 18:02:36 INFO SecurityManager: Changing modify acls groups to: mfrattarola
+26/04/29 18:02:36 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: mfrattarola groups with view permissions: EMPTY; users with modify permissions: mfrattarola; groups with modify permissions: EMPTY; RPC SSL disabled
+26/04/29 18:02:36 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://iris-084:7077...
+26/04/29 18:02:36 INFO TransportClientFactory: Successfully created connection to iris-084/172.17.6.84:7077 after 23 ms (0 ms spent in bootstraps)
+26/04/29 18:02:36 INFO Master: Registering app Problem1a_HeartDisease_LoadCSV
+26/04/29 18:02:36 INFO Master: Registered app Problem1a_HeartDisease_LoadCSV with ID app-20260429180236-0000
+26/04/29 18:02:36 INFO Master: Start scheduling for app app-20260429180236-0000 with rpId: 0
+26/04/29 18:02:36 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20260429180236-0000
+26/04/29 18:02:36 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 34147.
+26/04/29 18:02:36 INFO NettyBlockTransferService: Server created on node-84.iris-cluster.uni.lux:34147
+26/04/29 18:02:36 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/04/29 18:02:36 INFO Master: Launching executor app-20260429180236-0000/0 on worker worker-20260429180229-172.17.6.85-40139
+26/04/29 18:02:36 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, node-84.iris-cluster.uni.lux, 34147, None)
+26/04/29 18:02:36 INFO BlockManagerMasterEndpoint: Registering block manager node-84.iris-cluster.uni.lux:34147 with 434.4 MiB RAM, BlockManagerId(driver, node-84.iris-cluster.uni.lux, 34147, None)
+26/04/29 18:02:36 INFO Master: Launching executor app-20260429180236-0000/1 on worker worker-20260429180229-172.17.6.84-33101
+26/04/29 18:02:36 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, node-84.iris-cluster.uni.lux, 34147, None)
+26/04/29 18:02:36 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, node-84.iris-cluster.uni.lux, 34147, None)
+26/04/29 18:02:36 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260429180236-0000/0 on worker-20260429180229-172.17.6.85-40139 (172.17.6.85:40139) with 28 core(s)
+26/04/29 18:02:36 INFO StandaloneSchedulerBackend: Granted executor ID app-20260429180236-0000/0 on hostPort 172.17.6.85:40139 with 28 core(s), 108.0 GiB RAM
+26/04/29 18:02:36 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260429180236-0000/1 on worker-20260429180229-172.17.6.84-33101 (172.17.6.84:33101) with 28 core(s)
+26/04/29 18:02:36 INFO StandaloneSchedulerBackend: Granted executor ID app-20260429180236-0000/1 on hostPort 172.17.6.84:33101 with 28 core(s), 108.0 GiB RAM
+26/04/29 18:02:36 INFO Worker: Asked to launch executor app-20260429180236-0000/0 for Problem1a_HeartDisease_LoadCSV
+26/04/29 18:02:36 INFO Worker: Asked to launch executor app-20260429180236-0000/1 for Problem1a_HeartDisease_LoadCSV
+26/04/29 18:02:36 INFO SecurityManager: Changing view acls to: mfrattarola
+26/04/29 18:02:36 INFO SecurityManager: Changing modify acls to: mfrattarola
+26/04/29 18:02:36 INFO SecurityManager: Changing view acls groups to: mfrattarola
+26/04/29 18:02:36 INFO SecurityManager: Changing modify acls groups to: mfrattarola
+26/04/29 18:02:36 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: mfrattarola groups with view permissions: EMPTY; users with modify permissions: mfrattarola; groups with modify permissions: EMPTY; RPC SSL disabled
+26/04/29 18:02:36 INFO SecurityManager: Changing view acls to: mfrattarola
+26/04/29 18:02:36 INFO SecurityManager: Changing modify acls to: mfrattarola
+26/04/29 18:02:36 INFO SecurityManager: Changing view acls groups to: mfrattarola
+26/04/29 18:02:36 INFO SecurityManager: Changing modify acls groups to: mfrattarola
+26/04/29 18:02:36 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: mfrattarola groups with view permissions: EMPTY; users with modify permissions: mfrattarola; groups with modify permissions: EMPTY; RPC SSL disabled
+26/04/29 18:02:36 INFO ExecutorRunner: Launch command: "/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Java/21.0.8/bin/java" "-cp" "/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/conf/:/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/jars/slf4j-api-2.0.16.jar:/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/jars/*" "-Xmx110592M" "-Dspark.driver.port=40629" "-Djava.net.preferIPv6Addresses=false" "-XX:+IgnoreUnrecognizedVMOptions" "--add-modules=jdk.incubator.vector" "--add-opens=java.base/java.lang=ALL-UNNAMED" "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED" "--add-opens=java.base/java.lang.reflect=ALL-UNNAMED" "--add-opens=java.base/java.io=ALL-UNNAMED" "--add-opens=java.base/java.net=ALL-UNNAMED" "--add-opens=java.base/java.nio=ALL-UNNAMED" "--add-opens=java.base/java.util=ALL-UNNAMED" "--add-opens=java.base/java.util.concurrent=ALL-UNNAMED" "--add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.ref=ALL-UNNAMED" "--add-opens=java.base/sun.nio.ch=ALL-UNNAMED" "--add-opens=java.base/sun.nio.cs=ALL-UNNAMED" "--add-opens=java.base/sun.security.action=ALL-UNNAMED" "--add-opens=java.base/sun.util.calendar=ALL-UNNAMED" "--add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED" "-Djdk.reflect.useDirectMethodHandle=false" "-Dio.netty.tryReflectionSetAccessible=true" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@node-84.iris-cluster.uni.lux:40629" "--executor-id" "0" "--hostname" "172.17.6.85" "--cores" "28" "--app-id" "app-20260429180236-0000" "--worker-url" "spark://Worker@172.17.6.85:40139" "--resourceProfileId" "0"
+26/04/29 18:02:36 INFO ExecutorRunner: Launch command: "/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Java/21.0.8/bin/java" "-cp" "/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/conf/:/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/jars/slf4j-api-2.0.16.jar:/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/jars/*" "-Xmx110592M" "-Dspark.driver.port=40629" "-Djava.net.preferIPv6Addresses=false" "-XX:+IgnoreUnrecognizedVMOptions" "--add-modules=jdk.incubator.vector" "--add-opens=java.base/java.lang=ALL-UNNAMED" "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED" "--add-opens=java.base/java.lang.reflect=ALL-UNNAMED" "--add-opens=java.base/java.io=ALL-UNNAMED" "--add-opens=java.base/java.net=ALL-UNNAMED" "--add-opens=java.base/java.nio=ALL-UNNAMED" "--add-opens=java.base/java.util=ALL-UNNAMED" "--add-opens=java.base/java.util.concurrent=ALL-UNNAMED" "--add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.ref=ALL-UNNAMED" "--add-opens=java.base/sun.nio.ch=ALL-UNNAMED" "--add-opens=java.base/sun.nio.cs=ALL-UNNAMED" "--add-opens=java.base/sun.security.action=ALL-UNNAMED" "--add-opens=java.base/sun.util.calendar=ALL-UNNAMED" "--add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED" "-Djdk.reflect.useDirectMethodHandle=false" "-Dio.netty.tryReflectionSetAccessible=true" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@node-84.iris-cluster.uni.lux:40629" "--executor-id" "1" "--hostname" "172.17.6.84" "--cores" "28" "--app-id" "app-20260429180236-0000" "--worker-url" "spark://Worker@172.17.6.84:33101" "--resourceProfileId" "0"
+26/04/29 18:02:36 INFO Master: Start scheduling for app app-20260429180236-0000 with rpId: 0
+26/04/29 18:02:36 INFO Master: Start scheduling for app app-20260429180236-0000 with rpId: 0
+26/04/29 18:02:36 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+26/04/29 18:02:36 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260429180236-0000/0 is now RUNNING
+26/04/29 18:02:36 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20260429180236-0000/1 is now RUNNING
+26/04/29 18:02:38 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.17.6.85:40498) with ID 0, ResourceProfileId 0
+26/04/29 18:02:38 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.17.6.84:60156) with ID 1, ResourceProfileId 0
+
+======================================================================
+Schema of the Heart Disease DataFrame
+======================================================================
+root
+ |-- HeartDisease: string (nullable = true)
+ |-- BMI: float (nullable = true)
+ |-- Smoking: string (nullable = true)
+ |-- AlcoholDrinking: string (nullable = true)
+ |-- Stroke: string (nullable = true)
+ |-- PhysicalHealth: float (nullable = true)
+ |-- MentalHealth: float (nullable = true)
+ |-- DiffWalking: string (nullable = true)
+ |-- Sex: string (nullable = true)
+ |-- AgeCategory: string (nullable = true)
+ |-- Race: string (nullable = true)
+ |-- Diabetic: string (nullable = true)
+ |-- PhysicalActivity: string (nullable = true)
+ |-- GenHealth: string (nullable = true)
+ |-- SleepTime: float (nullable = true)
+ |-- Asthma: string (nullable = true)
+ |-- KidneyDisease: string (nullable = true)
+ |-- SkinCancer: string (nullable = true)
+
+
+======================================================================
+First 5 rows
+======================================================================
++------------+-----+-------+---------------+------+--------------+------------+-----------+------+-----------+-----+--------+----------------+---------+---------+------+-------------+----------+
+|HeartDisease|BMI  |Smoking|AlcoholDrinking|Stroke|PhysicalHealth|MentalHealth|DiffWalking|Sex   |AgeCategory|Race |Diabetic|PhysicalActivity|GenHealth|SleepTime|Asthma|KidneyDisease|SkinCancer|
++------------+-----+-------+---------------+------+--------------+------------+-----------+------+-----------+-----+--------+----------------+---------+---------+------+-------------+----------+
+|No          |16.6 |Yes    |No             |No    |3.0           |30.0        |No         |Female|55-59      |White|Yes     |Yes             |Very good|5.0      |Yes   |No           |Yes       |
+|No          |20.34|No     |No             |Yes   |0.0           |0.0         |No         |Female|80 or older|White|No      |Yes             |Very good|7.0      |No    |No           |No        |
+|No          |26.58|Yes    |No             |No    |20.0          |30.0        |No         |Male  |65-69      |White|Yes     |Yes             |Fair     |8.0      |Yes   |No           |No        |
+|No          |24.21|No     |No             |No    |0.0           |0.0         |No         |Female|75-79      |White|No      |No              |Good     |6.0      |No    |No           |Yes       |
+|No          |23.71|No     |No             |No    |28.0          |0.0         |Yes        |Female|40-44      |White|No      |Yes             |Very good|8.0      |No    |No           |No        |
++------------+-----+-------+---------------+------+--------------+------------+-----------+------+-----------+-----+--------+----------------+---------+---------+------+-------------+----------+
+only showing top 5 rows
+
+======================================================================
+Total rows loaded: 319,795
+======================================================================
+Training rows : 255,972
+Testing  rows : 63,823
+
+======================================================================
+Fitting the Decision Tree pipeline on the training split …
+======================================================================
+26/04/29 18:02:57 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+Pipeline fitted successfully.
+  Number of pipeline stages : 16
+
+======================================================================
+Sample output columns after pipeline transform (5 training rows)
+======================================================================
++------------+-----+--------------------+----------+
+|HeartDisease|label|            features|prediction|
++------------+-----+--------------------+----------+
+|          No|  0.0|(17,[4,5,9,13,16]...|       0.0|
+|          No|  0.0|(17,[2,3,5,8,9,13...|       0.0|
+|          No|  0.0|(17,[5,6,10,13,14...|       0.0|
+|          No|  0.0|(17,[0,1,4,5,9,13...|       0.0|
+|          No|  0.0|(17,[5,6,7,9,13,1...|       0.0|
++------------+-----+--------------------+----------+
+
+Total hyperparameter combinations : 18
+Parameter combinations in the grid:
+  [ 1] {'impurity': 'entropy', 'maxDepth': 6, 'maxBins': 20}
+  [ 2] {'impurity': 'entropy', 'maxDepth': 6, 'maxBins': 50}
+  [ 3] {'impurity': 'entropy', 'maxDepth': 6, 'maxBins': 100}
+  [ 4] {'impurity': 'entropy', 'maxDepth': 12, 'maxBins': 20}
+  [ 5] {'impurity': 'entropy', 'maxDepth': 12, 'maxBins': 50}
+  [ 6] {'impurity': 'entropy', 'maxDepth': 12, 'maxBins': 100}
+  [ 7] {'impurity': 'entropy', 'maxDepth': 24, 'maxBins': 20}
+  [ 8] {'impurity': 'entropy', 'maxDepth': 24, 'maxBins': 50}
+  [ 9] {'impurity': 'entropy', 'maxDepth': 24, 'maxBins': 100}
+  [10] {'impurity': 'gini', 'maxDepth': 6, 'maxBins': 20}
+  [11] {'impurity': 'gini', 'maxDepth': 6, 'maxBins': 50}
+  [12] {'impurity': 'gini', 'maxDepth': 6, 'maxBins': 100}
+  [13] {'impurity': 'gini', 'maxDepth': 12, 'maxBins': 20}
+  [14] {'impurity': 'gini', 'maxDepth': 12, 'maxBins': 50}
+  [15] {'impurity': 'gini', 'maxDepth': 12, 'maxBins': 100}
+  [16] {'impurity': 'gini', 'maxDepth': 24, 'maxBins': 20}
+  [17] {'impurity': 'gini', 'maxDepth': 24, 'maxBins': 50}
+  [18] {'impurity': 'gini', 'maxDepth': 24, 'maxBins': 100}
+
+======================================================================
+CrossValidator initialised successfully (not yet fitted)
+======================================================================
+  Estimator        : Pipeline_4b13e69e6f93
+  Number of folds  : 5
+  Param grid size  : 18
+  Evaluator metric : areaUnderROC
+  Total fit jobs   : 90
+
+======================================================================
+WARNING: CrossValidator.fit() is about to start.
+  -> 18 param combinations x 5 folds = 90 Spark jobs.
+======================================================================
+
+26/04/29 18:03:36 WARN DAGScheduler: Broadcasting large task binary with size 1186.0 KiB
+26/04/29 18:03:36 WARN DAGScheduler: Broadcasting large task binary with size 1515.7 KiB
+26/04/29 18:03:37 WARN DAGScheduler: Broadcasting large task binary with size 1894.4 KiB
+26/04/29 18:03:37 WARN DAGScheduler: Broadcasting large task binary with size 2.2 MiB
+26/04/29 18:03:37 WARN DAGScheduler: Broadcasting large task binary with size 2.7 MiB
+26/04/29 18:03:38 WARN DAGScheduler: Broadcasting large task binary with size 3.1 MiB
+26/04/29 18:03:38 WARN DAGScheduler: Broadcasting large task binary with size 3.5 MiB
+26/04/29 18:03:38 WARN DAGScheduler: Broadcasting large task binary with size 3.9 MiB
+26/04/29 18:03:39 WARN DAGScheduler: Broadcasting large task binary with size 4.3 MiB
+26/04/29 18:03:39 WARN DAGScheduler: Broadcasting large task binary with size 4.6 MiB
+26/04/29 18:03:40 WARN DAGScheduler: Broadcasting large task binary with size 2.8 MiB
+26/04/29 18:03:44 WARN DAGScheduler: Broadcasting large task binary with size 1138.9 KiB
+26/04/29 18:03:45 WARN DAGScheduler: Broadcasting large task binary with size 1454.1 KiB
+26/04/29 18:03:45 WARN DAGScheduler: Broadcasting large task binary with size 1822.1 KiB
+26/04/29 18:03:45 WARN DAGScheduler: Broadcasting large task binary with size 2.2 MiB
+26/04/29 18:03:45 WARN DAGScheduler: Broadcasting large task binary with size 2.6 MiB
+26/04/29 18:03:46 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+26/04/29 18:03:46 WARN DAGScheduler: Broadcasting large task binary with size 3.4 MiB
+26/04/29 18:03:46 WARN DAGScheduler: Broadcasting large task binary with size 3.7 MiB
+26/04/29 18:03:47 WARN DAGScheduler: Broadcasting large task binary with size 4.1 MiB
+26/04/29 18:03:47 WARN DAGScheduler: Broadcasting large task binary with size 4.4 MiB
+26/04/29 18:03:48 WARN DAGScheduler: Broadcasting large task binary with size 2.8 MiB
+26/04/29 18:03:52 WARN DAGScheduler: Broadcasting large task binary with size 1136.7 KiB
+26/04/29 18:03:52 WARN DAGScheduler: Broadcasting large task binary with size 1443.8 KiB
+26/04/29 18:03:52 WARN DAGScheduler: Broadcasting large task binary with size 1795.8 KiB
+26/04/29 18:03:53 WARN DAGScheduler: Broadcasting large task binary with size 2.1 MiB
+26/04/29 18:03:53 WARN DAGScheduler: Broadcasting large task binary with size 2.5 MiB
+26/04/29 18:03:53 WARN DAGScheduler: Broadcasting large task binary with size 2.9 MiB
+26/04/29 18:03:54 WARN DAGScheduler: Broadcasting large task binary with size 3.3 MiB
+26/04/29 18:03:54 WARN DAGScheduler: Broadcasting large task binary with size 3.6 MiB
+26/04/29 18:03:54 WARN DAGScheduler: Broadcasting large task binary with size 4.0 MiB
+26/04/29 18:03:55 WARN DAGScheduler: Broadcasting large task binary with size 4.3 MiB
+26/04/29 18:03:55 WARN DAGScheduler: Broadcasting large task binary with size 2.7 MiB
+26/04/29 18:04:21 WARN DAGScheduler: Broadcasting large task binary with size 1342.2 KiB
+26/04/29 18:04:21 WARN DAGScheduler: Broadcasting large task binary with size 1756.0 KiB
+26/04/29 18:04:21 WARN DAGScheduler: Broadcasting large task binary with size 2.2 MiB
+26/04/29 18:04:22 WARN DAGScheduler: Broadcasting large task binary with size 2.6 MiB
+26/04/29 18:04:22 WARN DAGScheduler: Broadcasting large task binary with size 3.1 MiB
+26/04/29 18:04:22 WARN DAGScheduler: Broadcasting large task binary with size 3.6 MiB
+26/04/29 18:04:23 WARN DAGScheduler: Broadcasting large task binary with size 4.0 MiB
+26/04/29 18:04:23 WARN DAGScheduler: Broadcasting large task binary with size 4.4 MiB
+26/04/29 18:04:24 WARN DAGScheduler: Broadcasting large task binary with size 4.8 MiB
+26/04/29 18:04:24 WARN DAGScheduler: Broadcasting large task binary with size 5.2 MiB
+26/04/29 18:04:25 WARN DAGScheduler: Broadcasting large task binary with size 3.1 MiB
+26/04/29 18:04:29 WARN DAGScheduler: Broadcasting large task binary with size 1331.1 KiB
+26/04/29 18:04:29 WARN DAGScheduler: Broadcasting large task binary with size 1733.0 KiB
+26/04/29 18:04:29 WARN DAGScheduler: Broadcasting large task binary with size 2.1 MiB
+26/04/29 18:04:30 WARN DAGScheduler: Broadcasting large task binary with size 2.6 MiB
+26/04/29 18:04:30 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+srun: Job 5375996 step creation temporarily disabled, retrying (Requested nodes are busy)
+26/04/29 18:04:30 WARN DAGScheduler: Broadcasting large task binary with size 3.5 MiB
+26/04/29 18:04:31 WARN DAGScheduler: Broadcasting large task binary with size 3.9 MiB
+26/04/29 18:04:31 WARN DAGScheduler: Broadcasting large task binary with size 4.3 MiB
+26/04/29 18:04:32 WARN DAGScheduler: Broadcasting large task binary with size 4.7 MiB
+26/04/29 18:04:32 WARN DAGScheduler: Broadcasting large task binary with size 5.0 MiB
+26/04/29 18:04:33 WARN DAGScheduler: Broadcasting large task binary with size 3.1 MiB
+26/04/29 18:04:37 WARN DAGScheduler: Broadcasting large task binary with size 1307.4 KiB
+26/04/29 18:04:37 WARN DAGScheduler: Broadcasting large task binary with size 1701.8 KiB
+26/04/29 18:04:37 WARN DAGScheduler: Broadcasting large task binary with size 2.1 MiB
+26/04/29 18:04:38 WARN DAGScheduler: Broadcasting large task binary with size 2.5 MiB
+26/04/29 18:04:38 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+26/04/29 18:04:38 WARN DAGScheduler: Broadcasting large task binary with size 3.4 MiB
+26/04/29 18:04:39 WARN DAGScheduler: Broadcasting large task binary with size 3.8 MiB
+26/04/29 18:04:39 WARN DAGScheduler: Broadcasting large task binary with size 4.2 MiB
+26/04/29 18:04:39 WARN DAGScheduler: Broadcasting large task binary with size 4.5 MiB
+26/04/29 18:04:40 WARN DAGScheduler: Broadcasting large task binary with size 4.8 MiB
+26/04/29 18:04:40 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+26/04/29 18:05:07 WARN DAGScheduler: Broadcasting large task binary with size 1200.0 KiB
+26/04/29 18:05:07 WARN DAGScheduler: Broadcasting large task binary with size 1536.9 KiB
+26/04/29 18:05:07 WARN DAGScheduler: Broadcasting large task binary with size 1909.0 KiB
+26/04/29 18:05:07 WARN DAGScheduler: Broadcasting large task binary with size 2.3 MiB
+26/04/29 18:05:08 WARN DAGScheduler: Broadcasting large task binary with size 2.7 MiB
+26/04/29 18:05:08 WARN DAGScheduler: Broadcasting large task binary with size 3.1 MiB
+26/04/29 18:05:08 WARN DAGScheduler: Broadcasting large task binary with size 3.5 MiB
+26/04/29 18:05:09 WARN DAGScheduler: Broadcasting large task binary with size 3.9 MiB
+26/04/29 18:05:09 WARN DAGScheduler: Broadcasting large task binary with size 4.3 MiB
+26/04/29 18:05:09 WARN DAGScheduler: Broadcasting large task binary with size 4.7 MiB
+26/04/29 18:05:10 WARN DAGScheduler: Broadcasting large task binary with size 2.8 MiB
+26/04/29 18:05:14 WARN DAGScheduler: Broadcasting large task binary with size 1183.4 KiB
+26/04/29 18:05:14 WARN DAGScheduler: Broadcasting large task binary with size 1510.8 KiB
+26/04/29 18:05:14 WARN DAGScheduler: Broadcasting large task binary with size 1880.6 KiB
+26/04/29 18:05:15 WARN DAGScheduler: Broadcasting large task binary with size 2.2 MiB
+26/04/29 18:05:15 WARN DAGScheduler: Broadcasting large task binary with size 2.6 MiB
+26/04/29 18:05:15 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+26/04/29 18:05:16 WARN DAGScheduler: Broadcasting large task binary with size 3.4 MiB
+26/04/29 18:05:16 WARN DAGScheduler: Broadcasting large task binary with size 3.8 MiB
+26/04/29 18:05:16 WARN DAGScheduler: Broadcasting large task binary with size 4.2 MiB
+26/04/29 18:05:17 WARN DAGScheduler: Broadcasting large task binary with size 4.5 MiB
+26/04/29 18:05:17 WARN DAGScheduler: Broadcasting large task binary with size 2.8 MiB
+26/04/29 18:05:21 WARN DAGScheduler: Broadcasting large task binary with size 1160.2 KiB
+26/04/29 18:05:22 WARN DAGScheduler: Broadcasting large task binary with size 1486.2 KiB
+26/04/29 18:05:22 WARN DAGScheduler: Broadcasting large task binary with size 1851.0 KiB
+26/04/29 18:05:22 WARN DAGScheduler: Broadcasting large task binary with size 2.2 MiB
+26/04/29 18:05:22 WARN DAGScheduler: Broadcasting large task binary with size 2.6 MiB
+26/04/29 18:05:23 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+26/04/29 18:05:23 WARN DAGScheduler: Broadcasting large task binary with size 3.3 MiB
+26/04/29 18:05:23 WARN DAGScheduler: Broadcasting large task binary with size 3.7 MiB
+26/04/29 18:05:24 WARN DAGScheduler: Broadcasting large task binary with size 4.1 MiB
+26/04/29 18:05:24 WARN DAGScheduler: Broadcasting large task binary with size 4.4 MiB
+26/04/29 18:05:25 WARN DAGScheduler: Broadcasting large task binary with size 2.8 MiB
+26/04/29 18:05:49 WARN DAGScheduler: Broadcasting large task binary with size 1317.8 KiB
+26/04/29 18:05:49 WARN DAGScheduler: Broadcasting large task binary with size 1697.8 KiB
+26/04/29 18:05:49 WARN DAGScheduler: Broadcasting large task binary with size 2.1 MiB
+26/04/29 18:05:50 WARN DAGScheduler: Broadcasting large task binary with size 2.5 MiB
+26/04/29 18:05:50 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+26/04/29 18:05:50 WARN DAGScheduler: Broadcasting large task binary with size 3.4 MiB
+26/04/29 18:05:51 WARN DAGScheduler: Broadcasting large task binary with size 3.9 MiB
+26/04/29 18:05:51 WARN DAGScheduler: Broadcasting large task binary with size 4.3 MiB
+26/04/29 18:05:51 WARN DAGScheduler: Broadcasting large task binary with size 4.7 MiB
+26/04/29 18:05:52 WARN DAGScheduler: Broadcasting large task binary with size 5.1 MiB
+26/04/29 18:05:52 WARN DAGScheduler: Broadcasting large task binary with size 3.1 MiB
+26/04/29 18:05:56 WARN DAGScheduler: Broadcasting large task binary with size 1286.9 KiB
+26/04/29 18:05:56 WARN DAGScheduler: Broadcasting large task binary with size 1660.6 KiB
+26/04/29 18:05:57 WARN DAGScheduler: Broadcasting large task binary with size 2.0 MiB
+26/04/29 18:05:57 WARN DAGScheduler: Broadcasting large task binary with size 2.5 MiB
+26/04/29 18:05:57 WARN DAGScheduler: Broadcasting large task binary with size 2.9 MiB
+26/04/29 18:05:58 WARN DAGScheduler: Broadcasting large task binary with size 3.4 MiB
+26/04/29 18:05:58 WARN DAGScheduler: Broadcasting large task binary with size 3.8 MiB
+26/04/29 18:05:58 WARN DAGScheduler: Broadcasting large task binary with size 4.2 MiB
+26/04/29 18:05:59 WARN DAGScheduler: Broadcasting large task binary with size 4.6 MiB
+26/04/29 18:05:59 WARN DAGScheduler: Broadcasting large task binary with size 4.9 MiB
+26/04/29 18:06:00 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+26/04/29 18:06:04 WARN DAGScheduler: Broadcasting large task binary with size 1267.4 KiB
+26/04/29 18:06:04 WARN DAGScheduler: Broadcasting large task binary with size 1623.6 KiB
+26/04/29 18:06:04 WARN DAGScheduler: Broadcasting large task binary with size 2020.6 KiB
+26/04/29 18:06:05 WARN DAGScheduler: Broadcasting large task binary with size 2.4 MiB
+26/04/29 18:06:05 WARN DAGScheduler: Broadcasting large task binary with size 2.8 MiB
+26/04/29 18:06:05 WARN DAGScheduler: Broadcasting large task binary with size 3.2 MiB
+26/04/29 18:06:06 WARN DAGScheduler: Broadcasting large task binary with size 3.7 MiB
+26/04/29 18:06:06 WARN DAGScheduler: Broadcasting large task binary with size 4.1 MiB
+26/04/29 18:06:06 WARN DAGScheduler: Broadcasting large task binary with size 4.4 MiB
+26/04/29 18:06:07 WARN DAGScheduler: Broadcasting large task binary with size 4.8 MiB
+26/04/29 18:06:07 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+26/04/29 18:06:32 WARN DAGScheduler: Broadcasting large task binary with size 1181.0 KiB
+26/04/29 18:06:32 WARN DAGScheduler: Broadcasting large task binary with size 1516.5 KiB
+26/04/29 18:06:32 WARN DAGScheduler: Broadcasting large task binary with size 1885.8 KiB
+26/04/29 18:06:33 WARN DAGScheduler: Broadcasting large task binary with size 2.2 MiB
+26/04/29 18:06:33 WARN DAGScheduler: Broadcasting large task binary with size 2.6 MiB
+srun: Job 5375996 step creation still disabled, retrying (Requested nodes are busy)
+26/04/29 18:06:33 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+26/04/29 18:06:34 WARN DAGScheduler: Broadcasting large task binary with size 3.5 MiB
+26/04/29 18:06:34 WARN DAGScheduler: Broadcasting large task binary with size 3.9 MiB
+26/04/29 18:06:34 WARN DAGScheduler: Broadcasting large task binary with size 4.3 MiB
+26/04/29 18:06:35 WARN DAGScheduler: Broadcasting large task binary with size 4.7 MiB
+26/04/29 18:06:35 WARN DAGScheduler: Broadcasting large task binary with size 2.8 MiB
+26/04/29 18:06:39 WARN DAGScheduler: Broadcasting large task binary with size 1159.6 KiB
+26/04/29 18:06:39 WARN DAGScheduler: Broadcasting large task binary with size 1477.1 KiB
+26/04/29 18:06:40 WARN DAGScheduler: Broadcasting large task binary with size 1838.8 KiB
+26/04/29 18:06:40 WARN DAGScheduler: Broadcasting large task binary with size 2.2 MiB
+26/04/29 18:06:40 WARN DAGScheduler: Broadcasting large task binary with size 2.6 MiB
+26/04/29 18:06:40 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+26/04/29 18:06:41 WARN DAGScheduler: Broadcasting large task binary with size 3.4 MiB
+26/04/29 18:06:41 WARN DAGScheduler: Broadcasting large task binary with size 3.8 MiB
+26/04/29 18:06:42 WARN DAGScheduler: Broadcasting large task binary with size 4.1 MiB
+26/04/29 18:06:42 WARN DAGScheduler: Broadcasting large task binary with size 4.5 MiB
+26/04/29 18:06:43 WARN DAGScheduler: Broadcasting large task binary with size 2.8 MiB
+26/04/29 18:06:46 WARN DAGScheduler: Broadcasting large task binary with size 1153.9 KiB
+26/04/29 18:06:47 WARN DAGScheduler: Broadcasting large task binary with size 1469.1 KiB
+26/04/29 18:06:47 WARN DAGScheduler: Broadcasting large task binary with size 1824.0 KiB
+26/04/29 18:06:47 WARN DAGScheduler: Broadcasting large task binary with size 2.1 MiB
+26/04/29 18:06:47 WARN DAGScheduler: Broadcasting large task binary with size 2.5 MiB
+26/04/29 18:06:48 WARN DAGScheduler: Broadcasting large task binary with size 2.9 MiB
+26/04/29 18:06:48 WARN DAGScheduler: Broadcasting large task binary with size 3.3 MiB
+26/04/29 18:06:48 WARN DAGScheduler: Broadcasting large task binary with size 3.7 MiB
+26/04/29 18:06:49 WARN DAGScheduler: Broadcasting large task binary with size 4.0 MiB
+26/04/29 18:06:49 WARN DAGScheduler: Broadcasting large task binary with size 4.3 MiB
+26/04/29 18:06:50 WARN DAGScheduler: Broadcasting large task binary with size 2.7 MiB
+26/04/29 18:07:13 WARN DAGScheduler: Broadcasting large task binary with size 1291.5 KiB
+26/04/29 18:07:13 WARN DAGScheduler: Broadcasting large task binary with size 1678.9 KiB
+26/04/29 18:07:14 WARN DAGScheduler: Broadcasting large task binary with size 2.1 MiB
+26/04/29 18:07:14 WARN DAGScheduler: Broadcasting large task binary with size 2.5 MiB
+26/04/29 18:07:14 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+26/04/29 18:07:15 WARN DAGScheduler: Broadcasting large task binary with size 3.5 MiB
+26/04/29 18:07:15 WARN DAGScheduler: Broadcasting large task binary with size 3.9 MiB
+26/04/29 18:07:15 WARN DAGScheduler: Broadcasting large task binary with size 4.3 MiB
+26/04/29 18:07:16 WARN DAGScheduler: Broadcasting large task binary with size 4.8 MiB
+26/04/29 18:07:16 WARN DAGScheduler: Broadcasting large task binary with size 5.1 MiB
+26/04/29 18:07:17 WARN DAGScheduler: Broadcasting large task binary with size 3.1 MiB
+26/04/29 18:07:21 WARN DAGScheduler: Broadcasting large task binary with size 1271.6 KiB
+26/04/29 18:07:21 WARN DAGScheduler: Broadcasting large task binary with size 1641.1 KiB
+26/04/29 18:07:21 WARN DAGScheduler: Broadcasting large task binary with size 2.0 MiB
+26/04/29 18:07:21 WARN DAGScheduler: Broadcasting large task binary with size 2.4 MiB
+26/04/29 18:07:22 WARN DAGScheduler: Broadcasting large task binary with size 2.9 MiB
+26/04/29 18:07:22 WARN DAGScheduler: Broadcasting large task binary with size 3.3 MiB
+26/04/29 18:07:22 WARN DAGScheduler: Broadcasting large task binary with size 3.8 MiB
+26/04/29 18:07:23 WARN DAGScheduler: Broadcasting large task binary with size 4.2 MiB
+26/04/29 18:07:23 WARN DAGScheduler: Broadcasting large task binary with size 4.6 MiB
+26/04/29 18:07:24 WARN DAGScheduler: Broadcasting large task binary with size 5.0 MiB
+26/04/29 18:07:24 WARN DAGScheduler: Broadcasting large task binary with size 3.1 MiB
+26/04/29 18:07:28 WARN DAGScheduler: Broadcasting large task binary with size 1226.5 KiB
+26/04/29 18:07:28 WARN DAGScheduler: Broadcasting large task binary with size 1582.3 KiB
+26/04/29 18:07:29 WARN DAGScheduler: Broadcasting large task binary with size 1991.6 KiB
+26/04/29 18:07:29 WARN DAGScheduler: Broadcasting large task binary with size 2.4 MiB
+26/04/29 18:07:29 WARN DAGScheduler: Broadcasting large task binary with size 2.8 MiB
+26/04/29 18:07:30 WARN DAGScheduler: Broadcasting large task binary with size 3.2 MiB
+26/04/29 18:07:30 WARN DAGScheduler: Broadcasting large task binary with size 3.7 MiB
+26/04/29 18:07:30 WARN DAGScheduler: Broadcasting large task binary with size 4.1 MiB
+26/04/29 18:07:31 WARN DAGScheduler: Broadcasting large task binary with size 4.5 MiB
+26/04/29 18:07:31 WARN DAGScheduler: Broadcasting large task binary with size 4.8 MiB
+26/04/29 18:07:32 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+26/04/29 18:07:56 WARN DAGScheduler: Broadcasting large task binary with size 1165.4 KiB
+26/04/29 18:07:56 WARN DAGScheduler: Broadcasting large task binary with size 1488.0 KiB
+26/04/29 18:07:56 WARN DAGScheduler: Broadcasting large task binary with size 1854.3 KiB
+26/04/29 18:07:57 WARN DAGScheduler: Broadcasting large task binary with size 2.2 MiB
+26/04/29 18:07:57 WARN DAGScheduler: Broadcasting large task binary with size 2.6 MiB
+26/04/29 18:07:57 WARN DAGScheduler: Broadcasting large task binary with size 3.1 MiB
+26/04/29 18:07:58 WARN DAGScheduler: Broadcasting large task binary with size 3.5 MiB
+26/04/29 18:07:58 WARN DAGScheduler: Broadcasting large task binary with size 3.9 MiB
+26/04/29 18:07:58 WARN DAGScheduler: Broadcasting large task binary with size 4.3 MiB
+26/04/29 18:07:59 WARN DAGScheduler: Broadcasting large task binary with size 4.7 MiB
+26/04/29 18:07:59 WARN DAGScheduler: Broadcasting large task binary with size 2.9 MiB
+26/04/29 18:08:03 WARN DAGScheduler: Broadcasting large task binary with size 1145.5 KiB
+26/04/29 18:08:03 WARN DAGScheduler: Broadcasting large task binary with size 1464.2 KiB
+26/04/29 18:08:04 WARN DAGScheduler: Broadcasting large task binary with size 1817.4 KiB
+26/04/29 18:08:04 WARN DAGScheduler: Broadcasting large task binary with size 2.2 MiB
+26/04/29 18:08:04 WARN DAGScheduler: Broadcasting large task binary with size 2.6 MiB
+26/04/29 18:08:04 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+26/04/29 18:08:05 WARN DAGScheduler: Broadcasting large task binary with size 3.4 MiB
+26/04/29 18:08:05 WARN DAGScheduler: Broadcasting large task binary with size 3.8 MiB
+26/04/29 18:08:06 WARN DAGScheduler: Broadcasting large task binary with size 4.1 MiB
+26/04/29 18:08:06 WARN DAGScheduler: Broadcasting large task binary with size 4.5 MiB
+26/04/29 18:08:07 WARN DAGScheduler: Broadcasting large task binary with size 2.8 MiB
+26/04/29 18:08:10 WARN DAGScheduler: Broadcasting large task binary with size 1135.5 KiB
+26/04/29 18:08:11 WARN DAGScheduler: Broadcasting large task binary with size 1445.0 KiB
+26/04/29 18:08:11 WARN DAGScheduler: Broadcasting large task binary with size 1779.6 KiB
+26/04/29 18:08:11 WARN DAGScheduler: Broadcasting large task binary with size 2.1 MiB
+26/04/29 18:08:11 WARN DAGScheduler: Broadcasting large task binary with size 2.5 MiB
+26/04/29 18:08:12 WARN DAGScheduler: Broadcasting large task binary with size 2.9 MiB
+26/04/29 18:08:12 WARN DAGScheduler: Broadcasting large task binary with size 3.2 MiB
+26/04/29 18:08:12 WARN DAGScheduler: Broadcasting large task binary with size 3.6 MiB
+26/04/29 18:08:13 WARN DAGScheduler: Broadcasting large task binary with size 3.9 MiB
+26/04/29 18:08:13 WARN DAGScheduler: Broadcasting large task binary with size 4.3 MiB
+26/04/29 18:08:14 WARN DAGScheduler: Broadcasting large task binary with size 2.7 MiB
+srun: Job 5375996 step creation still disabled, retrying (Requested nodes are busy)
+26/04/29 18:08:37 WARN DAGScheduler: Broadcasting large task binary with size 1324.8 KiB
+26/04/29 18:08:37 WARN DAGScheduler: Broadcasting large task binary with size 1718.2 KiB
+26/04/29 18:08:37 WARN DAGScheduler: Broadcasting large task binary with size 2.1 MiB
+26/04/29 18:08:37 WARN DAGScheduler: Broadcasting large task binary with size 2.6 MiB
+26/04/29 18:08:38 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+26/04/29 18:08:38 WARN DAGScheduler: Broadcasting large task binary with size 3.5 MiB
+26/04/29 18:08:38 WARN DAGScheduler: Broadcasting large task binary with size 4.0 MiB
+26/04/29 18:08:39 WARN DAGScheduler: Broadcasting large task binary with size 4.4 MiB
+26/04/29 18:08:39 WARN DAGScheduler: Broadcasting large task binary with size 4.8 MiB
+26/04/29 18:08:40 WARN DAGScheduler: Broadcasting large task binary with size 5.2 MiB
+26/04/29 18:08:40 WARN DAGScheduler: Broadcasting large task binary with size 3.1 MiB
+26/04/29 18:08:44 WARN DAGScheduler: Broadcasting large task binary with size 1303.3 KiB
+26/04/29 18:08:44 WARN DAGScheduler: Broadcasting large task binary with size 1676.3 KiB
+26/04/29 18:08:45 WARN DAGScheduler: Broadcasting large task binary with size 2.0 MiB
+26/04/29 18:08:45 WARN DAGScheduler: Broadcasting large task binary with size 2.5 MiB
+26/04/29 18:08:45 WARN DAGScheduler: Broadcasting large task binary with size 2.9 MiB
+26/04/29 18:08:45 WARN DAGScheduler: Broadcasting large task binary with size 3.4 MiB
+26/04/29 18:08:46 WARN DAGScheduler: Broadcasting large task binary with size 3.8 MiB
+26/04/29 18:08:46 WARN DAGScheduler: Broadcasting large task binary with size 4.2 MiB
+26/04/29 18:08:47 WARN DAGScheduler: Broadcasting large task binary with size 4.6 MiB
+26/04/29 18:08:47 WARN DAGScheduler: Broadcasting large task binary with size 4.9 MiB
+26/04/29 18:08:48 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+26/04/29 18:08:51 WARN DAGScheduler: Broadcasting large task binary with size 1285.1 KiB
+26/04/29 18:08:52 WARN DAGScheduler: Broadcasting large task binary with size 1649.4 KiB
+26/04/29 18:08:52 WARN DAGScheduler: Broadcasting large task binary with size 2.0 MiB
+26/04/29 18:08:52 WARN DAGScheduler: Broadcasting large task binary with size 2.4 MiB
+26/04/29 18:08:53 WARN DAGScheduler: Broadcasting large task binary with size 2.9 MiB
+26/04/29 18:08:53 WARN DAGScheduler: Broadcasting large task binary with size 3.3 MiB
+26/04/29 18:08:53 WARN DAGScheduler: Broadcasting large task binary with size 3.7 MiB
+26/04/29 18:08:54 WARN DAGScheduler: Broadcasting large task binary with size 4.1 MiB
+26/04/29 18:08:54 WARN DAGScheduler: Broadcasting large task binary with size 4.5 MiB
+26/04/29 18:08:55 WARN DAGScheduler: Broadcasting large task binary with size 4.8 MiB
+26/04/29 18:08:55 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+26/04/29 18:09:19 WARN DAGScheduler: Broadcasting large task binary with size 1208.4 KiB
+26/04/29 18:09:19 WARN DAGScheduler: Broadcasting large task binary with size 1530.5 KiB
+26/04/29 18:09:19 WARN DAGScheduler: Broadcasting large task binary with size 1891.5 KiB
+26/04/29 18:09:20 WARN DAGScheduler: Broadcasting large task binary with size 2.2 MiB
+26/04/29 18:09:20 WARN DAGScheduler: Broadcasting large task binary with size 2.6 MiB
+26/04/29 18:09:20 WARN DAGScheduler: Broadcasting large task binary with size 3.1 MiB
+26/04/29 18:09:21 WARN DAGScheduler: Broadcasting large task binary with size 3.5 MiB
+26/04/29 18:09:21 WARN DAGScheduler: Broadcasting large task binary with size 3.9 MiB
+26/04/29 18:09:21 WARN DAGScheduler: Broadcasting large task binary with size 4.3 MiB
+26/04/29 18:09:22 WARN DAGScheduler: Broadcasting large task binary with size 4.6 MiB
+26/04/29 18:09:22 WARN DAGScheduler: Broadcasting large task binary with size 2.8 MiB
+26/04/29 18:09:26 WARN DAGScheduler: Broadcasting large task binary with size 1178.8 KiB
+26/04/29 18:09:26 WARN DAGScheduler: Broadcasting large task binary with size 1484.0 KiB
+26/04/29 18:09:27 WARN DAGScheduler: Broadcasting large task binary with size 1827.2 KiB
+26/04/29 18:09:27 WARN DAGScheduler: Broadcasting large task binary with size 2.2 MiB
+26/04/29 18:09:27 WARN DAGScheduler: Broadcasting large task binary with size 2.5 MiB
+26/04/29 18:09:27 WARN DAGScheduler: Broadcasting large task binary with size 2.9 MiB
+26/04/29 18:09:28 WARN DAGScheduler: Broadcasting large task binary with size 3.3 MiB
+26/04/29 18:09:28 WARN DAGScheduler: Broadcasting large task binary with size 3.7 MiB
+26/04/29 18:09:29 WARN DAGScheduler: Broadcasting large task binary with size 4.0 MiB
+26/04/29 18:09:29 WARN DAGScheduler: Broadcasting large task binary with size 4.4 MiB
+26/04/29 18:09:29 WARN DAGScheduler: Broadcasting large task binary with size 2.7 MiB
+26/04/29 18:09:33 WARN DAGScheduler: Broadcasting large task binary with size 1159.4 KiB
+26/04/29 18:09:33 WARN DAGScheduler: Broadcasting large task binary with size 1465.3 KiB
+26/04/29 18:09:34 WARN DAGScheduler: Broadcasting large task binary with size 1800.9 KiB
+26/04/29 18:09:34 WARN DAGScheduler: Broadcasting large task binary with size 2.1 MiB
+26/04/29 18:09:34 WARN DAGScheduler: Broadcasting large task binary with size 2.5 MiB
+26/04/29 18:09:34 WARN DAGScheduler: Broadcasting large task binary with size 2.9 MiB
+26/04/29 18:09:35 WARN DAGScheduler: Broadcasting large task binary with size 3.2 MiB
+26/04/29 18:09:35 WARN DAGScheduler: Broadcasting large task binary with size 3.6 MiB
+26/04/29 18:09:36 WARN DAGScheduler: Broadcasting large task binary with size 3.9 MiB
+26/04/29 18:09:36 WARN DAGScheduler: Broadcasting large task binary with size 4.3 MiB
+26/04/29 18:09:36 WARN DAGScheduler: Broadcasting large task binary with size 2.7 MiB
+26/04/29 18:09:59 WARN DAGScheduler: Broadcasting large task binary with size 1039.1 KiB
+26/04/29 18:09:59 WARN DAGScheduler: Broadcasting large task binary with size 1373.2 KiB
+26/04/29 18:10:00 WARN DAGScheduler: Broadcasting large task binary with size 1764.0 KiB
+26/04/29 18:10:00 WARN DAGScheduler: Broadcasting large task binary with size 2.2 MiB
+26/04/29 18:10:00 WARN DAGScheduler: Broadcasting large task binary with size 2.6 MiB
+26/04/29 18:10:00 WARN DAGScheduler: Broadcasting large task binary with size 3.1 MiB
+26/04/29 18:10:01 WARN DAGScheduler: Broadcasting large task binary with size 3.6 MiB
+26/04/29 18:10:01 WARN DAGScheduler: Broadcasting large task binary with size 4.0 MiB
+26/04/29 18:10:02 WARN DAGScheduler: Broadcasting large task binary with size 4.5 MiB
+26/04/29 18:10:02 WARN DAGScheduler: Broadcasting large task binary with size 4.9 MiB
+26/04/29 18:10:03 WARN DAGScheduler: Broadcasting large task binary with size 5.2 MiB
+26/04/29 18:10:03 WARN DAGScheduler: Broadcasting large task binary with size 3.1 MiB
+26/04/29 18:10:07 WARN DAGScheduler: Broadcasting large task binary with size 1006.0 KiB
+26/04/29 18:10:07 WARN DAGScheduler: Broadcasting large task binary with size 1325.5 KiB
+26/04/29 18:10:07 WARN DAGScheduler: Broadcasting large task binary with size 1706.5 KiB
+26/04/29 18:10:07 WARN DAGScheduler: Broadcasting large task binary with size 2.1 MiB
+26/04/29 18:10:08 WARN DAGScheduler: Broadcasting large task binary with size 2.5 MiB
+26/04/29 18:10:08 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+26/04/29 18:10:08 WARN DAGScheduler: Broadcasting large task binary with size 3.5 MiB
+26/04/29 18:10:09 WARN DAGScheduler: Broadcasting large task binary with size 3.9 MiB
+26/04/29 18:10:09 WARN DAGScheduler: Broadcasting large task binary with size 4.3 MiB
+26/04/29 18:10:10 WARN DAGScheduler: Broadcasting large task binary with size 4.7 MiB
+26/04/29 18:10:10 WARN DAGScheduler: Broadcasting large task binary with size 5.1 MiB
+26/04/29 18:10:11 WARN DAGScheduler: Broadcasting large task binary with size 3.1 MiB
+26/04/29 18:10:14 WARN DAGScheduler: Broadcasting large task binary with size 1304.2 KiB
+26/04/29 18:10:15 WARN DAGScheduler: Broadcasting large task binary with size 1673.5 KiB
+26/04/29 18:10:15 WARN DAGScheduler: Broadcasting large task binary with size 2.0 MiB
+26/04/29 18:10:15 WARN DAGScheduler: Broadcasting large task binary with size 2.5 MiB
+26/04/29 18:10:15 WARN DAGScheduler: Broadcasting large task binary with size 2.9 MiB
+26/04/29 18:10:16 WARN DAGScheduler: Broadcasting large task binary with size 3.4 MiB
+26/04/29 18:10:16 WARN DAGScheduler: Broadcasting large task binary with size 3.8 MiB
+26/04/29 18:10:17 WARN DAGScheduler: Broadcasting large task binary with size 4.2 MiB
+26/04/29 18:10:17 WARN DAGScheduler: Broadcasting large task binary with size 4.6 MiB
+26/04/29 18:10:17 WARN DAGScheduler: Broadcasting large task binary with size 4.9 MiB
+26/04/29 18:10:18 WARN DAGScheduler: Broadcasting large task binary with size 3.1 MiB
+
+======================================================================
+CrossValidator Results (Average AUC-ROC across 5 folds for each parameter combination):
+======================================================================
+Metric: 0.610729 | Parameters: {'impurity': 'entropy', 'maxDepth': 6, 'maxBins': 20}
+Metric: 0.610728 | Parameters: {'impurity': 'entropy', 'maxDepth': 6, 'maxBins': 50}
+Metric: 0.610728 | Parameters: {'impurity': 'entropy', 'maxDepth': 6, 'maxBins': 100}
+Metric: 0.500027 | Parameters: {'impurity': 'entropy', 'maxDepth': 12, 'maxBins': 20}
+Metric: 0.510453 | Parameters: {'impurity': 'entropy', 'maxDepth': 12, 'maxBins': 50}
+Metric: 0.510449 | Parameters: {'impurity': 'entropy', 'maxDepth': 12, 'maxBins': 100}
+Metric: 0.534488 | Parameters: {'impurity': 'entropy', 'maxDepth': 24, 'maxBins': 20}
+Metric: 0.554795 | Parameters: {'impurity': 'entropy', 'maxDepth': 24, 'maxBins': 50}
+Metric: 0.560025 | Parameters: {'impurity': 'entropy', 'maxDepth': 24, 'maxBins': 100}
+Metric: 0.572590 | Parameters: {'impurity': 'gini', 'maxDepth': 6, 'maxBins': 20}
+Metric: 0.572626 | Parameters: {'impurity': 'gini', 'maxDepth': 6, 'maxBins': 50}
+Metric: 0.572626 | Parameters: {'impurity': 'gini', 'maxDepth': 6, 'maxBins': 100}
+Metric: 0.432089 | Parameters: {'impurity': 'gini', 'maxDepth': 12, 'maxBins': 20}
+Metric: 0.434056 | Parameters: {'impurity': 'gini', 'maxDepth': 12, 'maxBins': 50}
+Metric: 0.434977 | Parameters: {'impurity': 'gini', 'maxDepth': 12, 'maxBins': 100}
+Metric: 0.515430 | Parameters: {'impurity': 'gini', 'maxDepth': 24, 'maxBins': 20}
+Metric: 0.524657 | Parameters: {'impurity': 'gini', 'maxDepth': 24, 'maxBins': 50}
+Metric: 0.536981 | Parameters: {'impurity': 'gini', 'maxDepth': 24, 'maxBins': 100}
+
+Best model saved to: ./best_dt_model
+/opt/apps/easybuild/systems/iris/rhel810-20260107/2024a/broadwell/software/Spark/4.0.1-foss-2024a-Java-21/python/lib/pyspark.zip/pyspark/sql/context.py:157: FutureWarning: Deprecated in 3.0.0. Use SparkSession.builder.getOrCreate() instead.
+
+======================================================================
+Metrics via BinaryClassificationMetrics API
+======================================================================
+  Area Under ROC (AUC-ROC) : 0.521251
+  Area Under PR  (AUC-PR)  : 0.335234
+srun: Job 5375996 step creation still disabled, retrying (Requested nodes are busy)
+
+======================================================================
+Manual Metrics for 'HeartDisease' (Label = 1.0)
+======================================================================
+  Accuracy  : 0.914169
+  Precision : 0.561947
+  Recall    : 0.045898
+
+======================================================================
+Evaluation complete.
+======================================================================
+
+======================================================================
+PROBLEM 1(c) — TrainValidationSplit (trainRatio=0.8)
+======================================================================
+  trainRatio          : 0.8
+  Param grid size     : 18
+  Total fit jobs      : 18  (1 split × 18 combos)
+
+======================================================================
+WARNING: TrainValidationSplit.fit() is about to start.
+  -> 18 param combinations × 1 split = 18 Spark jobs.
+======================================================================
+
+26/04/29 18:11:04 WARN DAGScheduler: Broadcasting large task binary with size 1207.7 KiB
+26/04/29 18:11:05 WARN DAGScheduler: Broadcasting large task binary with size 1529.8 KiB
+26/04/29 18:11:05 WARN DAGScheduler: Broadcasting large task binary with size 1890.9 KiB
+26/04/29 18:11:05 WARN DAGScheduler: Broadcasting large task binary with size 2.2 MiB
+26/04/29 18:11:05 WARN DAGScheduler: Broadcasting large task binary with size 2.6 MiB
+26/04/29 18:11:06 WARN DAGScheduler: Broadcasting large task binary with size 3.1 MiB
+26/04/29 18:11:06 WARN DAGScheduler: Broadcasting large task binary with size 3.5 MiB
+26/04/29 18:11:07 WARN DAGScheduler: Broadcasting large task binary with size 3.9 MiB
+26/04/29 18:11:07 WARN DAGScheduler: Broadcasting large task binary with size 4.3 MiB
+26/04/29 18:11:07 WARN DAGScheduler: Broadcasting large task binary with size 4.6 MiB
+26/04/29 18:11:08 WARN DAGScheduler: Broadcasting large task binary with size 2.8 MiB
+26/04/29 18:11:12 WARN DAGScheduler: Broadcasting large task binary with size 1178.1 KiB
+26/04/29 18:11:12 WARN DAGScheduler: Broadcasting large task binary with size 1483.4 KiB
+26/04/29 18:11:12 WARN DAGScheduler: Broadcasting large task binary with size 1826.5 KiB
+26/04/29 18:11:12 WARN DAGScheduler: Broadcasting large task binary with size 2.1 MiB
+26/04/29 18:11:13 WARN DAGScheduler: Broadcasting large task binary with size 2.5 MiB
+26/04/29 18:11:13 WARN DAGScheduler: Broadcasting large task binary with size 2.9 MiB
+26/04/29 18:11:13 WARN DAGScheduler: Broadcasting large task binary with size 3.3 MiB
+26/04/29 18:11:14 WARN DAGScheduler: Broadcasting large task binary with size 3.7 MiB
+26/04/29 18:11:14 WARN DAGScheduler: Broadcasting large task binary with size 4.0 MiB
+26/04/29 18:11:14 WARN DAGScheduler: Broadcasting large task binary with size 4.4 MiB
+26/04/29 18:11:15 WARN DAGScheduler: Broadcasting large task binary with size 2.7 MiB
+26/04/29 18:11:19 WARN DAGScheduler: Broadcasting large task binary with size 1158.8 KiB
+26/04/29 18:11:19 WARN DAGScheduler: Broadcasting large task binary with size 1464.6 KiB
+26/04/29 18:11:19 WARN DAGScheduler: Broadcasting large task binary with size 1800.2 KiB
+26/04/29 18:11:19 WARN DAGScheduler: Broadcasting large task binary with size 2.1 MiB
+26/04/29 18:11:20 WARN DAGScheduler: Broadcasting large task binary with size 2.5 MiB
+26/04/29 18:11:20 WARN DAGScheduler: Broadcasting large task binary with size 2.9 MiB
+26/04/29 18:11:20 WARN DAGScheduler: Broadcasting large task binary with size 3.2 MiB
+26/04/29 18:11:21 WARN DAGScheduler: Broadcasting large task binary with size 3.6 MiB
+26/04/29 18:11:21 WARN DAGScheduler: Broadcasting large task binary with size 3.9 MiB
+26/04/29 18:11:21 WARN DAGScheduler: Broadcasting large task binary with size 4.3 MiB
+26/04/29 18:11:22 WARN DAGScheduler: Broadcasting large task binary with size 2.7 MiB
+26/04/29 18:11:44 WARN DAGScheduler: Broadcasting large task binary with size 1038.4 KiB
+26/04/29 18:11:45 WARN DAGScheduler: Broadcasting large task binary with size 1372.5 KiB
+26/04/29 18:11:45 WARN DAGScheduler: Broadcasting large task binary with size 1763.4 KiB
+26/04/29 18:11:45 WARN DAGScheduler: Broadcasting large task binary with size 2.2 MiB
+26/04/29 18:11:45 WARN DAGScheduler: Broadcasting large task binary with size 2.6 MiB
+26/04/29 18:11:46 WARN DAGScheduler: Broadcasting large task binary with size 3.1 MiB
+26/04/29 18:11:46 WARN DAGScheduler: Broadcasting large task binary with size 3.6 MiB
+26/04/29 18:11:46 WARN DAGScheduler: Broadcasting large task binary with size 4.0 MiB
+26/04/29 18:11:47 WARN DAGScheduler: Broadcasting large task binary with size 4.5 MiB
+26/04/29 18:11:47 WARN DAGScheduler: Broadcasting large task binary with size 4.9 MiB
+26/04/29 18:11:48 WARN DAGScheduler: Broadcasting large task binary with size 5.2 MiB
+26/04/29 18:11:48 WARN DAGScheduler: Broadcasting large task binary with size 3.1 MiB
+26/04/29 18:11:52 WARN DAGScheduler: Broadcasting large task binary with size 1005.4 KiB
+26/04/29 18:11:52 WARN DAGScheduler: Broadcasting large task binary with size 1324.8 KiB
+26/04/29 18:11:52 WARN DAGScheduler: Broadcasting large task binary with size 1705.9 KiB
+26/04/29 18:11:53 WARN DAGScheduler: Broadcasting large task binary with size 2.1 MiB
+26/04/29 18:11:53 WARN DAGScheduler: Broadcasting large task binary with size 2.5 MiB
+26/04/29 18:11:53 WARN DAGScheduler: Broadcasting large task binary with size 3.0 MiB
+26/04/29 18:11:54 WARN DAGScheduler: Broadcasting large task binary with size 3.5 MiB
+26/04/29 18:11:54 WARN DAGScheduler: Broadcasting large task binary with size 3.9 MiB
+26/04/29 18:11:54 WARN DAGScheduler: Broadcasting large task binary with size 4.3 MiB
+26/04/29 18:11:55 WARN DAGScheduler: Broadcasting large task binary with size 4.7 MiB
+26/04/29 18:11:55 WARN DAGScheduler: Broadcasting large task binary with size 5.1 MiB
+26/04/29 18:11:56 WARN DAGScheduler: Broadcasting large task binary with size 3.1 MiB
+26/04/29 18:11:59 WARN DAGScheduler: Broadcasting large task binary with size 1303.6 KiB
+26/04/29 18:12:00 WARN DAGScheduler: Broadcasting large task binary with size 1672.9 KiB
+26/04/29 18:12:00 WARN DAGScheduler: Broadcasting large task binary with size 2.0 MiB
+26/04/29 18:12:00 WARN DAGScheduler: Broadcasting large task binary with size 2.5 MiB
+26/04/29 18:12:01 WARN DAGScheduler: Broadcasting large task binary with size 2.9 MiB
+26/04/29 18:12:01 WARN DAGScheduler: Broadcasting large task binary with size 3.4 MiB
+26/04/29 18:12:01 WARN DAGScheduler: Broadcasting large task binary with size 3.8 MiB
+26/04/29 18:12:02 WARN DAGScheduler: Broadcasting large task binary with size 4.2 MiB
+26/04/29 18:12:02 WARN DAGScheduler: Broadcasting large task binary with size 4.6 MiB
+26/04/29 18:12:03 WARN DAGScheduler: Broadcasting large task binary with size 4.9 MiB
+26/04/29 18:12:03 WARN DAGScheduler: Broadcasting large task binary with size 3.1 MiB
+
+======================================================================
+TrainValidationSplit Results (AUC-ROC on the internal validation split):
+======================================================================
+Metric: 0.632938 | Parameters: {'impurity': 'entropy', 'maxDepth': 6, 'maxBins': 20}
+Metric: 0.632938 | Parameters: {'impurity': 'entropy', 'maxDepth': 6, 'maxBins': 50}
+Metric: 0.632937 | Parameters: {'impurity': 'entropy', 'maxDepth': 6, 'maxBins': 100}
+Metric: 0.513256 | Parameters: {'impurity': 'entropy', 'maxDepth': 12, 'maxBins': 20}
+Metric: 0.518912 | Parameters: {'impurity': 'entropy', 'maxDepth': 12, 'maxBins': 50}
+Metric: 0.529820 | Parameters: {'impurity': 'entropy', 'maxDepth': 12, 'maxBins': 100}
+Metric: 0.539496 | Parameters: {'impurity': 'entropy', 'maxDepth': 24, 'maxBins': 20}
+Metric: 0.554382 | Parameters: {'impurity': 'entropy', 'maxDepth': 24, 'maxBins': 50}
+Metric: 0.551907 | Parameters: {'impurity': 'entropy', 'maxDepth': 24, 'maxBins': 100}
+Metric: 0.576053 | Parameters: {'impurity': 'gini', 'maxDepth': 6, 'maxBins': 20}
+Metric: 0.576052 | Parameters: {'impurity': 'gini', 'maxDepth': 6, 'maxBins': 50}
+Metric: 0.576052 | Parameters: {'impurity': 'gini', 'maxDepth': 6, 'maxBins': 100}
+Metric: 0.403355 | Parameters: {'impurity': 'gini', 'maxDepth': 12, 'maxBins': 20}
+Metric: 0.398689 | Parameters: {'impurity': 'gini', 'maxDepth': 12, 'maxBins': 50}
+Metric: 0.399190 | Parameters: {'impurity': 'gini', 'maxDepth': 12, 'maxBins': 100}
+Metric: 0.502365 | Parameters: {'impurity': 'gini', 'maxDepth': 24, 'maxBins': 20}
+Metric: 0.529218 | Parameters: {'impurity': 'gini', 'maxDepth': 24, 'maxBins': 50}
+Metric: 0.543239 | Parameters: {'impurity': 'gini', 'maxDepth': 24, 'maxBins': 100}
+
+Best TVS model saved to: ./best_dt_tvs_model
+
+======================================================================
+1(c) Metrics via BinaryClassificationMetrics API  [TVS best model]
+======================================================================
+  Area Under ROC (AUC-ROC) : 0.521251
+  Area Under PR  (AUC-PR)  : 0.335234
+
+======================================================================
+1(c) Manual Metrics for 'HeartDisease' (Label = 1.0)  [TVS best model]
+======================================================================
+  Accuracy  : 0.914169
+  Precision : 0.561947
+  Recall    : 0.045898
+
+======================================================================
+COMPARISON — CrossValidator (b) vs TrainValidationSplit (c)
+======================================================================
+Metric                        CrossValidator                TVS
+---------------------------------------------------------------
+AUC-ROC                             0.521251           0.521251
+AUC-PR                              0.335234            0.335234
+Accuracy                            0.914169           0.914169
+Precision                           0.561947           0.561947
+Recall                              0.045898           0.045898
+======================================================================
+1(c) complete.
+
+26/04/29 18:12:20 INFO Master: Received unregister request from application app-20260429180236-0000
+26/04/29 18:12:20 INFO Master: Removing app app-20260429180236-0000
+26/04/29 18:12:20 INFO Worker: Asked to kill executor app-20260429180236-0000/0
+26/04/29 18:12:20 INFO ExecutorRunner: Runner thread for executor app-20260429180236-0000/0 interrupted
+26/04/29 18:12:20 INFO ExecutorRunner: Killing process!
+26/04/29 18:12:20 INFO Worker: Asked to kill executor app-20260429180236-0000/1
+26/04/29 18:12:20 INFO ExecutorRunner: Runner thread for executor app-20260429180236-0000/1 interrupted
+26/04/29 18:12:20 INFO ExecutorRunner: Killing process!
+26/04/29 18:12:20 INFO Master: 172.17.6.84:53646 got disassociated, removing it.
+26/04/29 18:12:20 INFO Master: node-84.iris-cluster.uni.lux:40629 got disassociated, removing it.
+26/04/29 18:12:20 WARN Master: Got status update for unknown executor app-20260429180236-0000/1
+26/04/29 18:12:20 WARN Master: Got status update for unknown executor app-20260429180236-0000/0
+26/04/29 18:12:20 INFO Worker: Executor app-20260429180236-0000/1 finished with state KILLED message Runner thread for executor app-20260429180236-0000/1 interrupted exitStatus 143
+26/04/29 18:12:20 INFO ExternalShuffleBlockResolver: Clean up non-shuffle and non-RDD files associated with the finished executor 1
+26/04/29 18:12:20 INFO ExternalShuffleBlockResolver: Executor is not registered (appId=app-20260429180236-0000, execId=1)
+26/04/29 18:12:20 INFO Worker: Cleaning up local directories for application app-20260429180236-0000
+26/04/29 18:12:20 INFO ExternalShuffleBlockResolver: Application app-20260429180236-0000 removed, cleanupLocalDirs = true
+26/04/29 18:12:20 INFO Worker: Executor app-20260429180236-0000/0 finished with state KILLED message Runner thread for executor app-20260429180236-0000/0 interrupted exitStatus 143
+26/04/29 18:12:20 INFO ExternalShuffleBlockResolver: Clean up non-shuffle and non-RDD files associated with the finished executor 0
+26/04/29 18:12:20 INFO ExternalShuffleBlockResolver: Executor is not registered (appId=app-20260429180236-0000, execId=0)
+26/04/29 18:12:20 INFO Worker: Cleaning up local directories for application app-20260429180236-0000
+26/04/29 18:12:20 INFO ExternalShuffleBlockResolver: Application app-20260429180236-0000 removed, cleanupLocalDirs = true
+====== Cleaning up: SPARK_CLEAN_TEMP=1
