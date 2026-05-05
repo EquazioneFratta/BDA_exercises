@@ -35,4 +35,34 @@ This is consistent with a MapReduce pipeline where work grows
 proportionally to input, with no significant overhead 
 introduced by larger datasets.
 
+Also, 1.b.1 and 1.d.2 had no results if runned only on the
+first folder.
+
+
+The words which have frequency of exactly 1000 considering
+all files are:
+- ordering
+- capturing
+- carthage
+
+There are no pairs of words which have exactly 1000 entries.
+2010-census is the number-word most frequent pair
+(1381 occurrences).
+"during" is the most frequent word, with 107826 occurrences
+
+
+[ HOW TO RUN THE CODE ]
+------------------------------------------------------------
+javac -classpath $(hadoop classpath) -d wordcount_classes '.\Ex1.java'
+jar -cvf Ex1.jar -C wordcount_classes/ .
+hadoop jar PATH\test.jar test PATH/input/* PATH/intermediate PATH/output
+
+
+[ AI USED ]
+------------------------------------------------------------
+We used Claude.ai during the development of this exercise of
+the project. The prompt we used is available as a comment
+inside the code, we then heavily adjusted the code in order
+to fix errors and inaccuracies that occurred.
+
 ============================================================

@@ -1,0 +1,36 @@
+Results:
+(a) median_age = 24.0
+(b) 437 data entries
+(c)
+We calculated the average fare price grouped by survival status:
+- Passengers who did not survive (Survived = 0): Average Fare = 22.12 (549 passengers)
+- Passengers who survived (Survived = 1): Average Fare = 48.40 (342 passengers)
+The average fare of survivors is more than twice as high as that of non-survivors.
+Therefore, the hypothesis that "the average fare price of survivors is not very different
+from that of non-survivors" is not supported by the data.
+
+
+Solutions:
+(a)
+1. Implement our own UDAF (User-Defined Aggregate Function).
+2. Fill in all the blanks(null) with the age: 23
+3. Sort all ages from youngest to oldest, and then find the middle age.
+SELECT MedianAge(Age) FROM titanic
+(b)
+Since you have already registered the MedianAge(age) UDF in (a), we can use it directly in
+(b). Using SQL :
+SELECT name, fare FROM titanic WHERE age > MedianAge(age)
+(c)
+1. Calculate two averages:
+Average fare for survivors (Survived = 1) → avg_fare_survived
+Average fare for non-survivors (Survived = 0) → avg_fare_not_survived
+2. Display these two average values for a simple comparison.
+3. The ticket price for survivors is more than twice that of non-survivors, a significant difference.
+
+
+AI platform: Grok 4.20
+The most important prompt:
+(Following the titanic.csv and DataFrame.scala), Please provide the solution to problem a.
+Are you using Spark SQL?
+What is the difference between UDF and UADF?
+Please save the results to a CSV file in the current directory.
