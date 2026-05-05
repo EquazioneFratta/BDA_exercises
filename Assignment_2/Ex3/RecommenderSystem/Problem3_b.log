@@ -1,0 +1,101 @@
+Testing: rank=10, lambda=1.0, alpha=1.0
+  CV Average AUC = 0.5128324039927918
+  >>> New Best Parameters!
+
+Testing: rank=10, lambda=1.0, alpha=10.0
+  CV Average AUC = 0.4950285932643583
+
+Testing: rank=10, lambda=1.0, alpha=100.0
+  CV Average AUC = 0.36419664533936713
+
+Testing: rank=10, lambda=0.1, alpha=1.0
+  CV Average AUC = 0.5208752638018905
+  >>> New Best Parameters!
+
+Testing: rank=10, lambda=0.1, alpha=10.0
+  CV Average AUC = 0.4907343658880762
+
+Testing: rank=10, lambda=0.1, alpha=100.0
+  CV Average AUC = 0.35481414258684874
+
+Testing: rank=10, lambda=0.01, alpha=1.0
+  CV Average AUC = 0.5176462510723685
+
+Testing: rank=10, lambda=0.01, alpha=10.0
+
+  CV Average AUC = 0.4852100800885668
+
+Testing: rank=10, lambda=0.01, alpha=100.0
+  CV Average AUC = 0.3570834036131686
+
+Testing: rank=25, lambda=1.0, alpha=1.0
+  CV Average AUC = 0.5298009409158284
+  >>> New Best Parameters!
+
+Testing: rank=25, lambda=1.0, alpha=10.0
+  CV Average AUC = 0.502592934396869
+
+Testing: rank=25, lambda=1.0, alpha=100.0
+  CV Average AUC = 0.41239548614606675
+
+Testing: rank=25, lambda=0.1, alpha=1.0
+  CV Average AUC = 0.5284850666510943
+
+Testing: rank=25, lambda=0.1, alpha=10.0
+  CV Average AUC = 0.5023554711507136
+
+Testing: rank=25, lambda=0.1, alpha=100.0
+  CV Average AUC = 0.3897556534473412
+
+Testing: rank=25, lambda=0.01, alpha=1.0
+  CV Average AUC = 0.5243346049644988
+
+Testing: rank=25, lambda=0.01, alpha=10.0
+  CV Average AUC = 0.49947735637516255
+
+Testing: rank=25, lambda=0.01, alpha=100.0
+  CV Average AUC = 0.40240803236537
+
+Testing: rank=50, lambda=1.0, alpha=1.0
+  CV Average AUC = 0.5345630031411592
+  >>> New Best Parameters!
+
+Testing: rank=50, lambda=1.0, alpha=10.0
+  CV Average AUC = 0.5129864641894697
+
+Testing: rank=50, lambda=1.0, alpha=100.0
+  CV Average AUC = 0.43411629760902964
+
+Testing: rank=50, lambda=0.1, alpha=1.0
+  CV Average AUC = 0.5329661106216499
+
+Testing: rank=50, lambda=0.1, alpha=10.0
+  CV Average AUC = 0.5087564157643694
+
+Testing: rank=50, lambda=0.1, alpha=100.0
+  CV Average AUC = 0.4206071460796312
+
+Testing: rank=50, lambda=0.01, alpha=1.0
+  CV Average AUC = 0.5368757301667186
+  >>> New Best Parameters!
+
+Testing: rank=50, lambda=0.01, alpha=10.0
+  CV Average AUC = 0.5159187352208776
+
+Testing: rank=50, lambda=0.01, alpha=100.0
+  CV Average AUC = 0.41082461817781973
+
+Best parameters found: rank=50, lambda=0.01, alpha=1.0 (CV AUC=0.5368757301667186)
+Final model trained with best parameters
+Final Test AUC: 0.5390795857094014
+
+=== Problem 3 (b) Results ===
+Timestamp: Tue May 05 08:48:33 CEST 2026
+Best rank: 50
+Best lambda: 0.01
+Best alpha: 1.0
+Best CV AUC: 0.5368757301667186
+Final Test AUC: 0.5390795857094014
+Test users used: 800
+=== Problem 3 (b) Completed ===
+

@@ -1,0 +1,9 @@
+【Iris-cluster RunRecommender.scala】
+
+– To run a shell script via spark-shell execute:
+(access-iris)$ srun -p batch --time=06:00:0 -N 2 -c 12 --pty bash -i
+
+(iris-node)$ ./launch-spark-shell.sh
+
+scala > :load RunRecommenderObject.scala
+scala > RunRecommenderObject.main(Array())
