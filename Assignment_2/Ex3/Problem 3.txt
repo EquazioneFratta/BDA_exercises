@@ -1,0 +1,66 @@
+Problem 3 - Recommender Systems via Matrix Factorization
+
+AI Tool Used: Grok4.2 (xAI)
+Main Prompting Steps:
+Asked for help implementing per-user stratified 80/20 split
+Requested code for 5-fold CV grid search following the triple for-loop example from class
+Requested logging and new user recommendation functionality
+
+Problem 3 (a) runtime: 8min 
+Problem 3 (b) runtime: 5h 43min
+Problem 3 (c) runtime: 8min
+Total runtime: 6h
+
+
+=== Problem 3 (a) Results ===
+Timestamp: Tue May 05 03:05:34 CEST 2026
+Heavy users (>= 100 artists): 72748
+Train records: 17011713
+Test records: 4289201
+Test users used for AUC evaluation: 200
+Average AUC (ALS model, top-50): 0.5126760932606244
+=== Problem 3 (a) Completed ===
+
+
+=== Problem 3 (b) Results ===
+Timestamp: Tue May 05 08:48:33 CEST 2026
+Best Hyper-parameters found: rank=50, lambda=0.01, alpha=1.0 (CV AUC=0.5368757301667186)
+Final Test AUC: 0.5390795857094014
+Test users used: 800
+=== Problem 3 (b) Completed ===
+
+
+=== Problem 3 (c) - New User Recommendations ===
+New User ID: 99999999
+Number of ratings added: 8
+Used best parameters: rank=50, lambda=0.01, alpha=1.0
+=== Top 25 Recommendations ===
+     606 -> The Rolling Stones @ 1.43
+     793 -> Bob Dylan @ 1.42
+ 1000416 -> Ramones @ 1.40
+    1411 -> The Clash @ 1.39
+ 1235281 -> The Who @ 1.36
+    1223 -> Jimi Hendrix @ 1.30
+ 1000113 -> The Beatles @ 1.24
+     344 -> The Doors @ 1.22
+ 1002457 -> The Beach Boys @ 1.21
+    1394 -> Led Zeppelin @ 1.19
+    5739 -> Sex Pistols @ 1.17
+ 1001861 -> Creedence Clearwater Revival @ 1.15
+    1303 -> The Kinks @ 1.11
+     600 -> Rancid @ 1.10
+    4569 -> Simon & Garfunkel @ 1.05
+    5804 -> The Living End @ 1.04
+    1270 -> Queen @ 1.04
+ 1000054 -> John Lennon @ 1.01
+    1428 -> Eric Clapton @ 1.00
+    1196 -> Elvis Presley @ 0.99
+     176 -> Dead Kennedys @ 0.99
+     949 -> Ben Folds Five @ 0.97
+ 1010296 -> Against Me! @ 0.97
+    3327 -> Weezer @ 0.96
+     599 -> NOFX @ 0.95
+
+The recommendations are mostly classic rock and punk bands. The model successfully captured a "rock" taste pattern from my ratings. 
+However, it leans toward very popular/classic artists. The recommendations are reasonable but could be more personalized with more diverse or recent artists in the input ratings.
+=== Problem 3 (c) Completed ===

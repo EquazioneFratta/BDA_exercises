@@ -1,0 +1,8 @@
+=== Problem 3 (a) Results ===
+Timestamp: Tue May 05 03:05:34 CEST 2026
+Heavy users (>= 100 artists): 72748
+Train records: 17011713
+Test records: 4289201
+Test users used for AUC evaluation: 200
+Average AUC (ALS model, top-50): 0.5126760932606244
+=== Problem 3 (a) Completed ===
