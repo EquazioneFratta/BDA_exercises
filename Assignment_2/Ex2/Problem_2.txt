@@ -153,7 +153,6 @@ the HPC cluster would be necessary.
 [ HOW TO RUN THE CODE ]
 ------------------------------------------------------------
 # Step 1: Download the NOAA files for station 065900
-(already downloaded inside the folder)
 bash download_noaa.sh
 
 # Step 2: Launch Spark and run all scripts
