@@ -1,0 +1,561 @@
+================================================================================
+  Outlier Detection for Gearbox Readings
+  Problem 3
+================================================================================
+
+--------------------------------------------------------------------------------
+0. DATASET – HOW TO DOWNLOAD
+--------------------------------------------------------------------------------
+
+The dataset used is the "Gearbox Fault Detection Dataset – PHM 2009 NASA",
+publicly available on Kaggle at:
+
+  https://www.kaggle.com/datasets/hetarthchopra/gearbox-fault-detection-dataset-phm-2009-nasa
+
+It can be downloaded programmatically using the kagglehub library:
+
+  import kagglehub
+  path = kagglehub.dataset_download(
+      "hetarthchopra/gearbox-fault-detection-dataset-phm-2009-nasa"
+  )
+  print("Path to dataset files:", path)
+
+After download, place all CSV files under:
+  data/gearbox-fault-detection-dataset-phm-2009-nasa/
+
+in the same directory as the scripts.
+
+--------------------------------------------------------------------------------
+1. HOW TO RUN
+--------------------------------------------------------------------------------
+
+The solution consists of two scripts:
+
+  runKMeans.py   – main Spark job (outlier detection)
+  plot.py        – local visualisation script (run after the Spark job)
+
+Step 1 – On IRIS HPC, submit the Spark job:
+
+  sbatch run_gearbox.sh
+
+Step 2 – Results are written to results.out.
+
+Step 3 – After the job finishes, copy the sample CSV back locally.
+
+Step 4 – Generate the plot locally:
+
+  python plot.py
+
+  This produces gearbox_clusters_pca.png.
+
+--------------------------------------------------------------------------------
+2. RESULTS – RUNTIMES AND TOP-25 OUTLIERS PER K
+--------------------------------------------------------------------------------
+
+All experiments were run on the IRIS HPC cluster (see Section 4 for hardware).
+
+---- 2a. RUNTIMES --------------------------------------------------------------
+
+  Data loading        : 12.7  s
+  Normalisation       : 23.4  s
+
+  k=2   model training: 52.9  s |  outlier scoring: 22.8 s
+  k=3   model training: 100.2 s |  outlier scoring: 25.2 s
+  k=4   model training: 99.2  s |  outlier scoring: 27.8 s
+  k=5   model training: 101.3 s |  outlier scoring: 30.3 s
+  k=6   model training: 95.8  s |  outlier scoring: 33.3 s
+  k=7   model training: 99.3  s |  outlier scoring: 35.4 s
+  k=8   model training: 100.5 s |  outlier scoring: 38.0 s
+  k=9   model training: 100.2 s |  outlier scoring: 40.8 s
+  k=10  model training: 102.4 s |  outlier scoring: 43.3 s
+  k=11  model training: 103.7 s |  outlier scoring: 45.6 s
+  k=12  model training: 105.3 s |  outlier scoring: 48.4 s
+
+  Total wall-clock time: 33 min 24 s
+
+---- 2b. TOP-25 OUTLIERS PER K -------------------------------------------------
+
+  Outliers are defined as the 25 data points (in their original, non-normalised
+  scale) with the largest Euclidean distance to the centroid of their assigned
+  cluster. A large distance indicates that the reading is anomalous with respect
+  to the cluster it belongs to.
+
+  ── k = 2 ──────────────────────────────────────────────────────────────────
+
+  Rank    Distance        vib_hs        vib_ls         speed
+     1     39.3251      0.015717      0.375980      4.941400
+     2     38.1312      0.002899     -0.362850      4.928000
+     3     30.7028      0.046387      0.292970      4.931600
+     4     27.6442      0.050812      0.263370      4.926800
+     5     27.3199      0.325780     -0.042419      0.056152
+     6     26.0253      0.040436      0.248570      4.930400
+     7     25.1941      0.301360     -0.042725      0.053711
+     8     24.7511      0.298160     -0.033112      0.048828
+     9     24.5419      0.013733      0.234830      0.068359
+    10     24.5367     -0.002899     -0.232540      4.930400
+    11     23.7225      0.007477     -0.225370      4.929200
+    12     23.6450      0.287780     -0.016479      0.062256
+    13     22.5303      0.012970      0.215610      4.939000
+    14     22.3949      0.036316      0.214080      0.037842
+    15     22.3521      0.271300     -0.030212      0.057373
+    16     21.9648      0.050201     -0.207520      0.046387
+    17     21.8355      0.267940      0.009003      0.043945
+    18     21.3109      0.261990     -0.008087      0.058594
+    19     21.2275      0.261230      0.004578      0.041504
+    20     20.9962      0.257420      0.021210      0.045166
+    21     20.9092     -0.011749     -0.196840      4.910900
+    22     20.7533     -0.016632     -0.194700      4.906000
+    23     20.6198      0.247960     -0.045319      0.047607
+    24     20.5904      0.015259      0.197140      0.058594
+    25     20.5800      0.041809      0.196380      0.061035
+
+  ── k = 3 ──────────────────────────────────────────────────────────────────
+
+  Rank    Distance        vib_hs        vib_ls         speed
+     1     37.9126      0.002899     -0.362850      4.928000
+     2     37.7542      0.015717      0.375980      4.941400
+     3     29.1757      0.046387      0.292970      4.931600
+     4     27.2201      0.325780     -0.042419      0.056152
+     5     26.1332      0.050812      0.263370      4.926800
+     6     25.0904      0.301360     -0.042725      0.053711
+     7     24.6574      0.298160     -0.033112      0.048828
+     8     24.5032      0.040436      0.248570      4.930400
+     9     24.3521     -0.002899     -0.232540      4.930400
+    10     23.5694      0.287780     -0.016479      0.062256
+    11     23.5373      0.007477     -0.225370      4.929200
+    12     22.9388      0.013733      0.234830      0.068359
+    13     22.2580      0.271300     -0.030212      0.057373
+    14     21.7919      0.267940      0.009003      0.043945
+    15     21.6850      0.050201     -0.207520      0.046387
+    16     21.2445      0.261990     -0.008087      0.058594
+    17     21.1782      0.261230      0.004578      0.041504
+    18     20.9795      0.012970      0.215610      4.939000
+    19     20.9701      0.257420      0.021210      0.045166
+    20     20.8277      0.036316      0.214080      0.037842
+    21     20.7440     -0.011749     -0.196840      4.910900
+    22     20.5912     -0.016632     -0.194700      4.906000
+    23     20.5023      0.247960     -0.045319      0.047607
+    24     20.4353      0.243070     -0.058441      0.063477
+    25     20.3628      0.251620      0.011292      0.036621
+
+  ── k = 4 ──────────────────────────────────────────────────────────────────
+
+  Rank    Distance        vib_hs        vib_ls         speed
+     1     38.8925      0.015717      0.375980      4.941400
+     2     36.9889      0.002899     -0.362850      4.928000
+     3     30.2616      0.046387      0.292970      4.931600
+     4     27.2012      0.050812      0.263370      4.926800
+     5     27.1209      0.325780     -0.042419      0.056152
+     6     25.5847      0.040436      0.248570      4.930400
+     7     24.9851      0.301360     -0.042725      0.053711
+     8     24.5867      0.298160     -0.033112      0.048828
+     9     24.1927      0.013733      0.234830      0.068359
+    10     23.5183      0.287780     -0.016479      0.062256
+    11     23.4038     -0.002899     -0.232540      4.930400
+    12     22.5823      0.007477     -0.225370      4.929200
+    13     22.1957      0.271300     -0.030212      0.057373
+    14     22.1005      0.012970      0.215610      4.939000
+    15     22.0469      0.036316      0.214080      0.037842
+    16     21.7014      0.267940      0.009003      0.043945
+    17     21.1820      0.261990     -0.008087      0.058594
+    18     21.0946      0.261230      0.004578      0.041504
+    19     20.8947      0.050201     -0.207520      0.046387
+    20     20.8588      0.257420      0.021210      0.045166
+    21     20.3712      0.247960     -0.045319      0.047607
+    22     20.2673      0.251620      0.011292      0.036621
+    23     20.2576      0.015259      0.197140      0.058594
+    24     20.2449      0.243070     -0.058441      0.063477
+    25     20.2374      0.041809      0.196380      0.061035
+
+  ── k = 5 ──────────────────────────────────────────────────────────────────
+
+  Rank    Distance        vib_hs        vib_ls         speed
+     1     37.3714      0.015717      0.375980      4.941400
+     2     36.3295      0.002899     -0.362850      4.928000
+     3     28.7040      0.046387      0.292970      4.931600
+     4     25.6473      0.325780     -0.042419      0.056152
+     5     25.6373      0.050812      0.263370      4.926800
+     6     24.0355      0.040436      0.248570      4.930400
+     7     23.5009      0.301360     -0.042725      0.053711
+     8     23.1268      0.298160     -0.033112      0.048828
+     9     22.8408     -0.002899     -0.232540      4.930400
+    10     22.6021      0.013733      0.234830      0.068359
+    11     22.1504      0.287780     -0.016479      0.062256
+    12     21.9680      0.007477     -0.225370      4.929200
+    13     20.7337      0.271300     -0.030212      0.057373
+    14     20.6104      0.012970      0.215610      4.939000
+    15     20.5833      0.267940      0.009003      0.043945
+    16     20.4030      0.036316      0.214080      0.037842
+    17     19.9563      0.050201     -0.207520      0.046387
+    18     19.9357      0.261230      0.004578      0.041504
+    19     19.8920      0.261990     -0.008087      0.058594
+    20     19.8825      0.257420      0.021210      0.045166
+    21     19.3249     -0.011749     -0.196840      4.910900
+    22     19.2114     -0.016632     -0.194700      4.906000
+    23     19.1896      0.251620      0.011292      0.036621
+    24     18.9846      0.251160     -0.001373      0.062256
+    25     18.8515      0.247960     -0.045319      0.047607
+
+  ── k = 6 ──────────────────────────────────────────────────────────────────
+
+  Rank    Distance        vib_hs        vib_ls         speed
+     1     38.5522      0.015717      0.375980      4.941400
+     2     36.9016      0.002899     -0.362850      4.928000
+     3     30.2025      0.046387      0.292970      4.931600
+     4     27.1854      0.050812      0.263370      4.926800
+     5     25.5310      0.040436      0.248570      4.930400
+     6     24.5602      0.325780     -0.042419      0.056152
+     7     23.7931      0.013733      0.234830      0.068359
+     8     23.3005     -0.002899     -0.232540      4.930400
+     9     22.4916      0.007477     -0.225370      4.929200
+    10     22.4445      0.301360     -0.042725      0.053711
+    11     21.9843      0.298160     -0.033112      0.048828
+    12     21.8658      0.036316      0.214080      0.037842
+    13     21.7852      0.012970      0.215610      4.939000
+    14     20.8781      0.050201     -0.207520      0.046387
+    15     20.8586      0.287780     -0.016479      0.062256
+    16     20.0489      0.041809      0.196380      0.061035
+    17     19.8804      0.015259      0.197140      0.058594
+    18     19.6682     -0.011749     -0.196840      4.910900
+    19     19.5889      0.271300     -0.030212      0.057373
+    20     19.5114     -0.016632     -0.194700      4.906000
+    21     19.2634      0.002289     -0.194240      4.935300
+    22     19.0502      0.267940      0.009003      0.043945
+    23     18.9927      0.032959      0.186770      0.047607
+    24     18.8272      0.001679      0.187990      0.059814
+    25     18.5228      0.261990     -0.008087      0.058594
+
+  ── k = 7 ──────────────────────────────────────────────────────────────────
+
+  Rank    Distance        vib_hs        vib_ls         speed
+     1     37.1653      0.015717      0.375980      4.941400
+     2     36.2447      0.002899     -0.362850      4.928000
+     3     28.5308      0.046387      0.292970      4.931600
+     4     25.4741      0.050812      0.263370      4.926800
+     5     24.3589      0.325780     -0.042419      0.056152
+     6     23.8630      0.040436      0.248570      4.930400
+     7     22.6685     -0.002899     -0.232540      4.930400
+     8     22.3594      0.013733      0.234830      0.068359
+     9     22.2361      0.301360     -0.042725      0.053711
+    10     21.8626      0.007477     -0.225370      4.929200
+    11     21.7924      0.298160     -0.033112      0.048828
+    12     20.6971      0.287780     -0.016479      0.062256
+    13     20.4074      0.012970      0.215610      4.939000
+    14     20.1881      0.036316      0.214080      0.037842
+    15     20.1021      0.050201     -0.207520      0.046387
+    16     19.3958      0.271300     -0.030212      0.057373
+    17     19.0495     -0.011749     -0.196840      4.910900
+    18     18.9440      0.267940      0.009003      0.043945
+    19     18.8942     -0.016632     -0.194700      4.906000
+    20     18.6464      0.002289     -0.194240      4.935300
+    21     18.4090      0.015259      0.197140      0.058594
+    22     18.3768      0.261990     -0.008087      0.058594
+    23     18.3692      0.041809      0.196380      0.061035
+    24     18.3242      0.261230      0.004578      0.041504
+    25     18.1544      0.257420      0.021210      0.045166
+
+  ── k = 8 ──────────────────────────────────────────────────────────────────
+
+  Rank    Distance        vib_hs        vib_ls         speed
+     1     37.9674      0.015717      0.375980      4.941400
+     2     35.5915      0.002899     -0.362850      4.928000
+     3     29.7011      0.046387      0.292970      4.931600
+     4     26.6546      0.050812      0.263370      4.926800
+     5     25.0378      0.040436      0.248570      4.930400
+     6     24.2841      0.325780     -0.042419      0.056152
+     7     23.2378      0.013733      0.234830      0.068359
+     8     22.1655      0.301360     -0.042725      0.053711
+     9     22.0271     -0.002899     -0.232540      4.930400
+    10     21.7119      0.298160     -0.033112      0.048828
+    11     21.3518      0.036316      0.214080      0.037842
+    12     21.2305      0.012970      0.215610      4.939000
+    13     21.1979      0.007477     -0.225370      4.929200
+    14     20.5993      0.287780     -0.016479      0.062256
+    15     19.5345      0.041809      0.196380      0.061035
+    16     19.4141      0.050201     -0.207520      0.046387
+    17     19.3465      0.015259      0.197140      0.058594
+    18     19.3159      0.271300     -0.030212      0.057373
+    19     18.8174      0.267940      0.009003      0.043945
+    20     18.4789      0.032959      0.186770      0.047607
+    21     18.4359     -0.011749     -0.196840      4.910900
+    22     18.2956     -0.016632     -0.194700      4.906000
+    23     18.2705      0.261990     -0.008087      0.058594
+    24     18.2505      0.001679      0.187990      0.059814
+    25     18.2024      0.261230      0.004578      0.041504
+
+  ── k = 9 ──────────────────────────────────────────────────────────────────
+
+  Rank    Distance        vib_hs        vib_ls         speed
+     1     36.5501      0.015717      0.375980      4.941400
+     2     35.3558      0.002899     -0.362850      4.928000
+     3     27.9030      0.046387      0.292970      4.931600
+     4     24.8422      0.050812      0.263370      4.926800
+     5     23.9300      0.325780     -0.042419      0.056152
+     6     23.2299      0.040436      0.248570      4.930400
+     7     21.8081      0.301360     -0.042725      0.053711
+     8     21.7952      0.013733      0.234830      0.068359
+     9     21.7763     -0.002899     -0.232540      4.930400
+    10     21.3648      0.298160     -0.033112      0.048828
+    11     20.9615      0.007477     -0.225370      4.929200
+    12     20.2725      0.287780     -0.016479      0.062256
+    13     19.7767      0.012970      0.215610      4.939000
+    14     19.6200      0.036316      0.214080      0.037842
+    15     19.2324      0.050201     -0.207520      0.046387
+    16     18.9694      0.271300     -0.030212      0.057373
+    17     18.5311      0.267940      0.009003      0.043945
+    18     18.1656     -0.011749     -0.196840      4.910900
+    19     18.0170     -0.016632     -0.194700      4.906000
+    20     17.9559      0.261990     -0.008087      0.058594
+    21     17.9094      0.261230      0.004578      0.041504
+    22     17.8510      0.015259      0.197140      0.058594
+    23     17.8024      0.041809      0.196380      0.061035
+    24     17.7512      0.257420      0.021210      0.045166
+    25     17.7460      0.002289     -0.194240      4.935300
+
+  ── k = 10 ─────────────────────────────────────────────────────────────────
+
+  Rank    Distance        vib_hs        vib_ls         speed
+     1     36.7160      0.015717      0.375980      4.941400
+     2     36.5016      0.002899     -0.362850      4.928000
+     3     28.1220      0.046387      0.292970      4.931600
+     4     25.0754      0.050812      0.263370      4.926800
+     5     23.4453      0.040436      0.248570      4.930400
+     6     23.1258      0.325780     -0.042419      0.056152
+     7     22.9511     -0.002899     -0.232540      4.930400
+     8     22.1301      0.007477     -0.225370      4.929200
+     9     21.9410      0.013733      0.234830      0.068359
+    10     20.9950      0.301360     -0.042725      0.053711
+    11     20.5747      0.298160     -0.033112      0.048828
+    12     20.2713      0.050201     -0.207520      0.046387
+    13     19.9296      0.012970      0.215610      4.939000
+    14     19.8208      0.036316      0.214080      0.037842
+    15     19.5275      0.287780     -0.016479      0.062256
+    16     19.3581     -0.011749     -0.196840      4.910900
+    17     19.2123     -0.016632     -0.194700      4.906000
+    18     18.9303      0.002289     -0.194240      4.935300
+    19     18.1788      0.271300     -0.030212      0.057373
+    20     18.0213      0.041809      0.196380      0.061035
+    21     17.9952      0.015259      0.197140      0.058594
+    22     17.8772      0.267940      0.009003      0.043945
+    23     17.5796      0.039063     -0.182650      0.045166
+    24     17.2395      0.261230      0.004578      0.041504
+    25     17.2371      0.261990     -0.008087      0.058594
+
+  ── k = 11 ─────────────────────────────────────────────────────────────────
+
+  Rank    Distance        vib_hs        vib_ls         speed
+     1     37.1033      0.015717      0.375980      4.941400
+     2     36.4250      0.002899     -0.362850      4.928000
+     3     28.4332      0.046387      0.292970      4.931600
+     4     25.3648      0.050812      0.263370      4.926800
+     5     23.7602      0.040436      0.248570      4.930400
+     6     23.5747      0.325780     -0.042419      0.056152
+     7     22.8599     -0.002899     -0.232540      4.930400
+     8     22.3820      0.013733      0.234830      0.068359
+     9     22.0514      0.007477     -0.225370      4.929200
+    10     21.4498      0.301360     -0.042725      0.053711
+    11     21.0119      0.298160     -0.033112      0.048828
+    12     20.3287      0.012970      0.215610      4.939000
+    13     20.2498      0.050201     -0.207520      0.046387
+    14     20.2132      0.036316      0.214080      0.037842
+    15     19.9310      0.287780     -0.016479      0.062256
+    16     19.2488     -0.011749     -0.196840      4.910900
+    17     19.0955     -0.016632     -0.194700      4.906000
+    18     18.8414      0.002289     -0.194240      4.935300
+    19     18.6152      0.271300     -0.030212      0.057373
+    20     18.4582      0.015259      0.197140      0.058594
+    21     18.3919      0.041809      0.196380      0.061035
+    22     18.2145      0.267940      0.009003      0.043945
+    23     17.6202      0.261990     -0.008087      0.058594
+    24     17.5876      0.261230      0.004578      0.041504
+    25     17.5457      0.039063     -0.182650      0.045166
+
+  ── k = 12 ─────────────────────────────────────────────────────────────────
+
+  Rank    Distance        vib_hs        vib_ls         speed
+     1     37.2700      0.015717      0.375980      4.941400
+     2     34.9902      0.002899     -0.362850      4.928000
+     3     28.6588      0.046387      0.292970      4.931600
+     4     25.6058      0.050812      0.263370      4.926800
+     5     23.9798      0.040436      0.248570      4.930400
+     6     23.5736      0.325780     -0.042419      0.056152
+     7     22.5741      0.013733      0.234830      0.068359
+     8     21.4495      0.301360     -0.042725      0.053711
+     9     21.4015     -0.002899     -0.232540      4.930400
+    10     21.0083      0.298160     -0.033112      0.048828
+    11     20.5936      0.007477     -0.225370      4.929200
+    12     20.4750      0.012970      0.215610      4.939000
+    13     20.4478      0.036316      0.214080      0.037842
+    14     19.9212      0.287780     -0.016479      0.062256
+    15     18.9111      0.050201     -0.207520      0.046387
+    16     18.6488      0.041809      0.196380      0.061035
+    17     18.6417      0.015259      0.197140      0.058594
+    18     18.6110      0.271300     -0.030212      0.057373
+    19     18.1938      0.267940      0.009003      0.043945
+    20     17.7811     -0.011749     -0.196840      4.910900
+    21     17.7635      0.001679      0.187990      0.059814
+    22     17.6290     -0.016632     -0.194700      4.906000
+    23     17.6065      0.261990     -0.008087      0.058594
+    24     17.5886      0.032959      0.186770      0.047607
+    25     17.5683      0.261230      0.004578      0.041504
+
+--------------------------------------------------------------------------------
+3. HPC CONFIGURATION – IRIS CLUSTER
+--------------------------------------------------------------------------------
+
+The job was submitted to the IRIS HPC cluster using a SLURM batch script.
+
+  Setup       : IRIS cluster
+  Nodes       : 1
+  CPU Cores   : 12
+  RAM         : 64 GB
+
+--------------------------------------------------------------------------------
+4. CODE EXPLANATION
+--------------------------------------------------------------------------------
+
+---- 4a. runKMeans.py -------------------------------------------------------
+
+This is the main PySpark script submitted to the IRIS cluster via spark-submit.
+It performs the following steps in order:
+
+  1. IMPORTS AND OPTIONAL LIBRARIES
+     Standard libraries (math, numpy, os, time) are always imported.
+     matplotlib and sklearn are imported inside a try/except block so that the
+     script does not crash on HPC where those packages are unavailable. A boolean
+     flag (VIZ_AVAILABLE) controls which visualisation path is taken later.
+
+  2. SPARK SESSION
+     A SparkSession is created with the application name
+     "GearboxOutlierDetection". The SparkContext (sc) is extracted from it.
+
+  3. DATA LOADING
+     All CSV files matching the glob pattern are loaded with sc.textFile().
+     Each line is parsed by parse_line(), which splits on commas, converts the
+     three fields to floats, and wraps them in a pyspark.mllib.linalg.Vectors
+     dense vector. Lines that do not have exactly 3 valid floats (e.g., empty
+     lines or header artefacts) are filtered out. The resulting RDD is cached so
+     Spark does not re-read the files on every action.
+
+  4. NORMALISATION
+     The normalize() function computes per-feature z-score statistics (mean and
+     standard deviation) in a single distributed pass over the data using
+     reduce() and aggregate(). It returns a closure (normalize_vector) that maps
+     any raw vector to its normalised equivalent. The normalised RDD is cached
+     and materialised before the main loop so that normalisation time is not
+     charged to the first k iteration.
+
+  5. DISTANCE HELPERS
+     distance(a, b) computes the Euclidean distance between two numpy arrays.
+     distToCentroid(vector, model) predicts the cluster for a given vector and
+     returns its distance to the corresponding centroid.
+
+  6. OUTLIER DETECTION LOOP (k = 2 to 12)
+     For each value of k:
+       - KMeans.train() fits a K-Means model on the normalised RDD.
+       - Cluster sizes are computed with a map-reduceByKey.
+       - Each original (non-normalised) data point is scored by applying
+         normalize_func on the fly and computing distToCentroid. The 25 points
+         with the largest distances are returned by takeOrdered() and printed.
+     Runtimes are recorded with time.time() for each sub-step and printed
+     immediately (flush=True) so they appear live in the .out file.
+
+  7. VISUALISATION
+     A 0.1% random sample of the normalised data is collected to the driver.
+     If matplotlib and sklearn are available: PCA reduces the 3D data
+     to 2D and a scatter plot coloured by cluster is saved as PNG.
+     If not available: the sample is written to gearbox_k12.csv
+     for offline plotting with plot.py.
+
+  8. CLEANUP
+     Both cached RDDs are unpersisted and the SparkSession is stopped cleanly.
+
+---- 4b. plot.py --------------------------------------------------------
+
+This lightweight local script is run on a personal machine after copying
+gearbox_k12.csv from the cluster. It does not require Spark.
+
+  1. Reads the CSV into a pandas DataFrame (columns: vib_hs, vib_ls, speed,
+     cluster).
+
+  2. PCA 2-D PLOT: sklearn's PCA reduces the 3 sensor dimensions to 2 principal
+     components. A matplotlib scatter plot coloured by cluster ID is saved as
+     gearbox_clusters_pca.png.
+
+  3. DIRECT 3-D SCATTER: since the gearbox data has exactly 3 features, no
+     dimensionality reduction is needed for a 3-D view. A second plot using
+     mpl_toolkits.mplot3d places the three sensor channels directly on the X, Y,
+     and Z axes, and is saved as gearbox_clusters_3d.png.
+
+
+---- NOTE ON .py vs .ipynb FORMAT ----------------------------------------------
+
+Due to technical constraints encountered during development — in particular,
+several module compatibility issues on the IRIS cluster that required
+significant debugging time — we worked directly with standalone .py scripts
+rather than notebooks. This made iterative testing and spark-submit submission
+considerably easier, as a notebook would need to be converted to .py via
+nbconvert anyway before it could be run on the cluster. This is the reason why
+only .py scripts are included in this folder.
+
+
+--------------------------------------------------------------------------------
+5. AI USED
+--------------------------------------------------------------------------------
+
+We used Claude.ai and Gemini during the development of this exercise.
+The AI assisted with:
+  - Adapting the provided RunKMeans.ipynb notebook to work on the NASA Gearbox
+    dataset
+  - Diagnosing and fixing compatibility errors
+  - Structuring the outlier detection loop for k = 2..12 using pyspark.mllib
+  - Adding per-step runtime tracking for live HPC output
+  - Generating the local visualisation script (plot.py) using PCA and
+    a direct 3-D scatter plot
+  - Writing this report
+
+All generated code was reviewed, tested and adjusted manually
+to fix errors and verify correctness of results.
+
+
+---- MAIN PROMPT USED ----------------------------------------------------------
+
+  "I need to adapt the provided RunKMeans.ipynb PySpark notebook to perform
+   outlier detection on the NASA Gearbox Fault Detection dataset (PHM 2009),
+   available on Kaggle.
+
+   Dataset details:
+     - ~14 million sensor readings spread across multiple CSV files
+     - Each row has exactly 3 comma-separated float columns with no header:
+       vib_hs (vibration, high-speed shaft), vib_ls (vibration, low-speed
+       shaft), and speed (tachometer signal)
+
+   The script must perform the following tasks:
+     - Load all CSV files from a local directory using sc.textFile() and parse
+       them into PySpark MLlib dense vectors, filtering out any malformed lines
+     - Normalise the data using z-score normalisation (per-feature mean and
+       standard deviation computed in a single distributed pass)
+     - Run K-Means clustering (using pyspark.mllib.clustering.KMeans) for each
+       value of k from 2 to 12 on the normalised data
+     - For each k, print the cluster sizes and the top-25 outliers, defined as
+       the 25 data points with the largest Euclidean distance to the centroid of
+       their assigned cluster; outliers must be shown with their original
+       (non-normalised) sensor values
+     - Record and print runtimes for each step (data loading, normalisation,
+       model training per k, outlier scoring per k) so progress can be monitored
+     - Produce one visualisation plot of a small random sample of the data,
+       coloured by cluster assignment, using PCA to reduce to 2D if needed
+
+   Additional constraints:
+     - The script will be submitted via spark-submit on a single node of the
+       HPC cluster with 12 CPU cores and 64 GB RAM
+     - matplotlib and scikit-learn may not be available on the cluster, so the
+       visualisation step must degrade gracefully: if those libraries are missing,
+       save a small sample to a CSV file instead, to be plotted locally
+     - All print() calls must use flush=True so that output appears live in the
+       SLURM .out file rather than being buffered until the job ends
+     - The final deliverable is a standalone .py script (not a notebook), since
+       spark-submit requires a plain Python file
+
+   Please generate the script, adapted from the structure of the provided
+   RunKMeans.ipynb notebook."
