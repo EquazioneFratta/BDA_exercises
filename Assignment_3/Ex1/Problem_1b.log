@@ -33,7 +33,7 @@ Total configurations: 9 | Dataset size: 1.0
 
 
 === Problem 1(b) NLP Full Experiment Started ===
-Total configurations: 9 | Dataset size: 0.01
+Total configurations: 9 | Dataset size: 1.0
 
 >>> Running NLP | numFreq = 5000 | k = 25
 ✅ Finished NLP: numFreq=5000 | k=25 | Runtime = 858.562 seconds
