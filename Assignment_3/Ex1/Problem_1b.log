@@ -1,0 +1,65 @@
+=== Problem 1(b) Simple Tokenizer Version Full Experiment Started ===
+Total configurations: 9 | Dataset size: 1.0
+
+>>> Running: numFreq = 5000 | k = 25
+✅ Finished: numFreq=5000 | k=25 | Runtime = 48.196 seconds
+
+>>> Running: numFreq = 5000 | k = 100
+✅ Finished: numFreq=5000 | k=100 | Runtime = 54.493 seconds
+
+>>> Running: numFreq = 5000 | k = 250
+✅ Finished: numFreq=5000 | k=250 | Runtime = 82.211 seconds
+
+>>> Running: numFreq = 10000 | k = 25
+✅ Finished: numFreq=10000 | k=25 | Runtime = 48.751 seconds
+
+>>> Running: numFreq = 10000 | k = 100
+✅ Finished: numFreq=10000 | k=100 | Runtime = 64.434 seconds
+
+>>> Running: numFreq = 10000 | k = 250
+✅ Finished: numFreq=10000 | k=250 | Runtime = 119.094 seconds
+
+>>> Running: numFreq = 20000 | k = 25
+✅ Finished: numFreq=20000 | k=25 | Runtime = 51.231 seconds
+
+>>> Running: numFreq = 20000 | k = 100
+✅ Finished: numFreq=20000 | k=100 | Runtime = 69.684 seconds
+
+>>> Running: numFreq = 20000 | k = 250
+✅ Finished: numFreq=20000 | k=250 | Runtime = 137.067 seconds
+
+=== Problem 1(b) Simple Experiment Completed! ===
+
+
+
+=== Problem 1(b) NLP Full Experiment Started ===
+Total configurations: 9 | Dataset size: 0.01
+
+>>> Running NLP | numFreq = 5000 | k = 25
+✅ Finished NLP: numFreq=5000 | k=25 | Runtime = 858.562 seconds
+
+>>> Running NLP | numFreq = 5000 | k = 100
+✅ Finished NLP: numFreq=5000 | k=100 | Runtime = 892.127 seconds
+
+>>> Running NLP | numFreq = 5000 | k = 250
+✅ Finished NLP: numFreq=5000 | k=250 | Runtime = 1044.411 seconds
+
+>>> Running NLP | numFreq = 10000 | k = 25
+✅ Finished NLP: numFreq=10000 | k=25 | Runtime = 658.983 seconds
+
+>>> Running NLP | numFreq = 10000 | k = 100
+✅ Finished NLP: numFreq=10000 | k=100 | Runtime = 793.686 seconds
+
+>>> Running NLP | numFreq = 10000 | k = 250
+✅ Finished NLP: numFreq=10000 | k=250 | Runtime = 1305.526 seconds
+
+>>> Running NLP | numFreq = 20000 | k = 25
+✅ Finished NLP: numFreq=20000 | k=25 | Runtime = 798.864 seconds
+
+>>> Running NLP | numFreq = 20000 | k = 100
+✅ Finished NLP: numFreq=20000 | k=100 | Runtime = 957.38 seconds
+
+>>> Running NLP | numFreq = 20000 | k = 250
+✅ Finished NLP: numFreq=20000 | k=250 | Runtime = 1307.527 seconds
+
+=== Problem 1(b) NLP Full Experiment Completed! ===

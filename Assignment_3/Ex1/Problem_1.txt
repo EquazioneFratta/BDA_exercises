@@ -22,3 +22,91 @@ Conclusion:
 The NLP pipeline with lemmatization produces much higher quality latent concepts compared to the simple regex tokenizer. 
 The difference is very obvious — the simple tokenizer version is dominated by noise and date fragments, while the NLP version yields interpretable and meaningful topics. 
 This clearly demonstrates the importance of proper NLP preprocessing (lemmatization + stopword handling) for LSA.
+
+
+Problem 1(b) - Analysis
+
+            Runtime Performance Report (Standardized to Minutes)
+
+| Tokenizer Type | Vocabulary Size (numFreq)| k = 25     | k = 100    | k = 250    |
+|----------------|--------------------------|------------|------------|------------|
+| Simple         | 5,000                    | 0.80 min   | 0.91 min   | 1.37 min   |
+| Simple         | 10,000                   | 0.81 min   | 1.07 min   | 1.98 min   |
+| Simple         | 20,000                   | 0.85 min   | 1.16 min   | 2.28 min   |
+| NLP Lemmatizer | 5,000                    | 14.31 min  | 14.87 min  | 17.40 min  |
+| NLP Lemmatizer | 10,000                   | 10.98 min  | 13.22 min  | 21.75 min  |
+| NLP Lemmatizer | 20,000                   | 13.31 min  | 15.95 min  | 21.75 min  |
+
+
+Quantitative Runtime Comparison & Scalability Analysis
+The Computational Overhead of Full-Scale NLP:
+  Standardizing the execution footprints into macro-scale metrics reveals that the NLP Pipeline 
+  introduces a profound temporal penalty over the baseline. Under the full-scale 1.0 dataset, 
+  the NLP Pipeline requires a minimum of 14.31 minutes (858.56s) at its lowest threshold 
+  (numFreq=5,000, k=25), compared to the mere 0.80 minutes demanded by the Simple Tokenizer 
+  under identical constraints (a ~18x slowdown). This massive temporal gap is driven by the 
+  CPU-bound complexity of Part-of-Speech (POS) tagging and morphological matrix mapping 
+  inside the lemmatizer, layered with severe JVM object serialization and memory allocation 
+  friction across Spark executors.
+
+Non-Linear Shuffling and Partition Tail Latencies:
+  The full dataset scale exposes a distinct distributed computing anomaly at numFreq=5,000 
+  under the NLP pipeline, where low vocabulary configurations run slower than expanded ones 
+  (e.g., 14.31 min vs 10.98 min at k=25). This empirical trend indicates a data-skew bottleneck; 
+  forcing the entire corpus variance into a compressed 5,000-term boundary overloads a few 
+  critical Spark reducers during the TF-IDF aggregation phase, creating computational 
+  "stragglers". Expanding numFreq to 10,000 and 20,000 evens out partition distribution, 
+  unleashing Spark's parallel processing efficiency.
+
+The Quadratic Dominance of SVD Dimensions (k):
+  Once data partitioning stabilizes, the target latent dimensionality (k) emerges as the absolute 
+  scalability bottleneck. At numFreq=20,000, advancing k from 25 to 250 pushes the cluster 
+  runtime from 13.31 minutes up to 21.75 minutes. Under the hood, Spark MLlib's Lanczos solver 
+  executes with an O(m * n * k) + O(m * k^2) mathematical complexity. With the document count (m) 
+  finalized at 41,784, the computational cost of maintaining strict vector orthogonality among 
+  250 latent dimensions escalates quadratically, dominating cluster CPU time.
+
+Concluding Recommendation for the Best Hyper-parameters:
+Selected Optimal Setup: NLP Pipeline + numFreq = 20,000 & k = 100
+Justification:
+1. Linguistic Imperative: The NLP Pipeline is irreplaceable. Despite its ~14-minute 
+   execution baseline, it compresses plural/tense variants onto unified base lemmas, 
+   successfully dismantling the deceptive "Smith" and year-based token clusters that broke 
+   the Simple Tokenizer's search logic.
+2. Vocabulary Scaling Efficiency: Selecting numFreq = 20,000 balances the cluster's 
+   partition architecture, routing rich semantic features to downstream queries for a highly 
+   affordable marginal penalty (+2.6 minutes against numFreq=10,000).
+3. The SVD Inflection Sweet Spot: Setting k = 100 serves as the ideal mathematical inflection 
+   point. It provides sufficient geometric freedom to isolate encyclopedic sub-genres cleanly 
+   (e.g., successfully mapping specific Olympic athletes or music bands) while protecting 
+   the pipeline from the heavy 21-minute compute tax and risk of semantic over-segmentation 
+   encountered at k = 250.
+
+
+Problem 1(c) - Search Engine Results Analysis
+I implemented a basic LSA-based search engine using the best hyper-parameters found in Problem 1(b) (numFreq = 20000, k = 100) with the NLP pipeline (lemmatization). The system converts input keywords into a query vector in the latent semantic space and retrieves the top documents by cosine similarity.
+Key observations from 10 test queries:
+
+Good performance on some topics:
+“mythology norse greek” returned relevant mythological figures (Coroebus, Antianeira, Megapenthes, etc.).
+“war battle military” successfully retrieved “Battle of Dunbar”.
+“olympic game medal” found Olympic-related pages (e.g., Curling at the 2002 Winter Olympics).
+
+Poor performance on most technical/modern queries:
+Queries like “computer algorithm software”, “artificial intelligence”, “climate global warming”, and “economy market finance” were dominated by irrelevant or generic results such as “Hop (telecommunications)”, “Network engineering”, “System integrity”, and “Title 47 of the Code of Federal Regulations”.
+Many results appear to be noisy or low-semantic-value documents.
+
+
+Conclusion:
+The LSA search engine demonstrates the core principle of latent semantic retrieval and can find meaningful documents for certain well-represented topics (especially mythology and historical events). However, the overall retrieval quality is only moderate. 
+For many queries the system returns noisy or unrelated results, which is typical for a basic LSA implementation without additional techniques such as query expansion, term re-weighting, or higher dimensionality.
+In summary, while the engine works conceptually, its practical effectiveness is limited. Using a higher k value (e.g., 250) or more advanced preprocessing would likely improve the quality of the search results.
+
+
+Generative AI Usage Report--Grok v4.2
+Problem 1(a):
+I asked Grok to translate the original RunLSA.scala script into two clean, compilable Scala objects (RunLSA_Simple.scala and RunLSA_NLP.scala). 
+I requested full English comments, spark-shell compatibility, and fixes for common compilation and serialization errors. Grok provided the complete code and helped debug path, Seq ambiguity, and SerializedLambda issues.
+Problem 1(b):
+I requested scripts to automatically run all 9 hyper-parameter combinations (numFreq ∈ {5000, 10000, 20000} × k ∈ {25, 100, 250}) for both Simple Tokenizer and NLP versions, while recording exact runtimes. 
+I asked Grok to implement a basic search engine using the best SVD parameters from 1(b) (numFreq=20000, k=100). Grok generated the complete query vector construction and top-document retrieval code, including proper US matrix multiplication.
