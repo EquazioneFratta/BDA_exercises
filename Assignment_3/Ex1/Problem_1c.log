@@ -1,0 +1,71 @@
+=== NLP Search Engine Results (Top 5) ===
+
+Query: computer algorithm software
+  Hop (telecommunications)                                               score = 0.0854
+  Network engineering                                                    score = 0.0656
+  System integrity                                                       score = 0.0651
+  Stop signal                                                            score = 0.0650
+  Title 47 of the Code of Federal Regulations                            score = 0.0645
+
+Query: war battle military
+  Battle of Dunbar                                                       score = 1.0536
+  1915                                                                   score = 0.1882
+  1945                                                                   score = 0.1635
+  Aberdeen (disambiguation)                                              score = 0.1089
+  1699                                                                   score = 0.0664
+
+Query: music album song
+  Hop (telecommunications)                                               score = 0.0669
+  Elvis (disambiguation)                                                 score = 0.0561
+  System integrity                                                       score = 0.0523
+  Title 47 of the Code of Federal Regulations                            score = 0.0522
+  Network engineering                                                    score = 0.0502
+
+Query: movie film director actor
+  Hop (telecommunications)                                               score = 0.0733
+  Title 47 of the Code of Federal Regulations                            score = 0.0578
+  System integrity                                                       score = 0.0575
+  Stop signal                                                            score = 0.0554
+  Network engineering                                                    score = 0.0531
+
+Query: space planet nasa
+  Hop (telecommunications)                                               score = 0.0418
+  Network engineering                                                    score = 0.0340
+  System integrity                                                       score = 0.0326
+  Title 47 of the Code of Federal Regulations                            score = 0.0323
+  Stop signal                                                            score = 0.0310
+
+Query: artificial intelligence
+  Timeline of atomic and subatomic physics                               score = 0.0239
+  Timeline of black hole physics                                         score = 0.0174
+  Hop (telecommunications)                                               score = 0.0145
+  System integrity                                                       score = 0.0113
+  Title 47 of the Code of Federal Regulations                            score = 0.0113
+
+Query: climate global warming
+  Hop (telecommunications)                                               score = 0.0244
+  Title 47 of the Code of Federal Regulations                            score = 0.0188
+  System integrity                                                       score = 0.0188
+  Stop signal                                                            score = 0.0184
+  Network engineering                                                    score = 0.0180
+
+Query: economy market finance
+  Hop (telecommunications)                                               score = 0.0267
+  Title 47 of the Code of Federal Regulations                            score = 0.0211
+  System integrity                                                       score = 0.0209
+  Stop signal                                                            score = 0.0201
+  Network engineering                                                    score = 0.0196
+
+Query: olympic game medal
+  February 11                                                            score = 0.1399
+  February 17                                                            score = 0.1399
+  1915                                                                   score = 0.0844
+  1945                                                                   score = 0.0742
+  Curling at the 2002 Winter Olympics                                    score = 0.0627
+
+Query: mythology norse greek
+  Coroebus                                                               score = 1.7364
+  Antianeira                                                             score = 1.5710
+  Megapenthes                                                            score = 1.5295
+  Sthenelus                                                              score = 1.3979
+  Eumedes                                                                score = 1.3932
