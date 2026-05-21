@@ -1,0 +1,24 @@
+Problem 1(a) - Observation on Tokenizer vs Lemmatizer
+I implemented two versions as required:
+
+Simple Tokenizer (using regex [a-zA-Z0-9]+ as introduced in Exercise Sheet #1)
+NLP Pipeline (using Stanford CoreNLP for tokenization + lemmatization + stopword removal)
+
+Comparison of top-25 terms and top-25 documents under the top-25 latent concepts:
+Simple Tokenizer version suffers from heavy noise:
+
+Many Wikipedia template artifacts appear frequently (onlyinclude, notoc, condita, urbe, consulship, domini, anno).
+Results are heavily dominated by date/calendar-related terms (julian, calendar, year, october, december, etc.).
+Documents are mostly date pages or disambiguation pages, making the latent concepts semantically weak and less meaningful.
+
+NLP (Lemmatizer) version produces significantly better results:
+
+Template noise is effectively removed.
+Terms are cleaner and more semantically coherent (e.g., nordic, winter, mythology, norse, autosport, climate, disulfide, bacterial).
+Documents are more relevant and diverse (e.g., Fimbulwinter, Geography of Lithuania, Autosport, chemical/biological concepts).
+Latent concepts show clearer topical structure (mythology, winter events, chemistry, geography, etc.).
+
+Conclusion:
+The NLP pipeline with lemmatization produces much higher quality latent concepts compared to the simple regex tokenizer. 
+The difference is very obvious — the simple tokenizer version is dominated by noise and date fragments, while the NLP version yields interpretable and meaningful topics. 
+This clearly demonstrates the importance of proper NLP preprocessing (lemmatization + stopword handling) for LSA.
