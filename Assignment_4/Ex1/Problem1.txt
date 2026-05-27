@@ -1,0 +1,339 @@
+==============================================================
+  Social Network Analysis in GraphX
+  Problem 1
+==============================================================
+
+--------------------------------------------------------------
+HARDWARE DESCRIPTION
+--------------------------------------------------------------
+Cluster       : IRIS HPC
+Nodes used    : 4
+CPUs per node : 8 --> 32 total cores
+Memory        : 4 GB per CPU --> 32 GB per node, 128 GB total
+
+--------------------------------------------------------------
+HOW TO RUN
+--------------------------------------------------------------
+
+On IRIS HPC, submit the Spark job:
+
+  sbatch submit_marvel.sh
+
+Results are written to logs/marvel-graphx_%j.out.
+
+--------------------------------------------------------------
+RESULTS
+--------------------------------------------------------------
+
+(a) Graph construction & vertex comparison
+------------------------------------------
+Distinct heroes  from edges.csv  : 5777
+Distinct comics  from edges.csv  : 13930
+Distinct vertices from edges.csv : 19707
+Vertices in nodes.csv only       : 207
+Vertices in edges.csv only       : 1486
+Graph vertices (GraphX)          : 19707
+Graph edges   (GraphX)           : 96104
+
+
+Observation: The two vertex sets do not match perfectly. 207 vertices appear
+in nodes.csv but not in edges.csv, meaning those heroes or comics are listed
+in the official catalogue but have no recorded appearances or connections in
+the edge data. Conversely, 1486 vertices appear in edges.csv but not in
+nodes.csv, meaning the edge file references nodes that were never included in
+the official catalogue, likely due to inconsistencies between the two files
+in the original dataset.
+
+
+(b) Connected Components
+------------------------
+Number of connected components: 864
+Top-10 component sizes (largest first):
+    Component id=0     size=16619
+    Component id=32    size=778
+    Component id=1188  size=35
+    Component id=424   size=32
+    Component id=1156  size=18
+    Component id=908   size=17
+    Component id=162   size=15
+    Component id=2519  size=13
+    Component id=398   size=13
+    Component id=2230  size=13
+
+
+Observation: The graph has 864 connected components, but one giant component
+dominates, containing 16619 out of 19707 vertices (84% of the graph). The
+second-largest component has only 778 vertices, and all remaining components
+are very small (35 or fewer vertices). This structure is typical of real-world
+social networks, where the vast majority of nodes are reachable from one
+another while a small number of isolated groups exist at the periphery.
+
+
+(c) Degree Distribution / Clustering Coefficient / Average Path Length
+-----------------------------------------------------------------------
+Degree statistics: count: 19707, mean: 9.753286, stdev: 37.232009, max: 1577.000000, min: 1.000000
+
+Average clustering coefficient: 0.0
+
+Path-length histogram:
+      length=0   pairs=180
+      length=1   pairs=931
+      length=2   pairs=134036
+      length=3   pairs=199645
+      length=4   pairs=1207533
+      length=5   pairs=676258
+      length=6   pairs=223222
+      length=7   pairs=49979
+      length=8   pairs=6633
+      length=9   pairs=756
+      length=10  pairs=238
+      length=11  pairs=212
+      length=12  pairs=324
+      length=13  pairs=237
+      length=14  pairs=239
+      length=15  pairs=232
+      length=16  pairs=253
+      length=17  pairs=187
+      length=18  pairs=221
+      length=19  pairs=157
+      length=20  pairs=167
+      length=21  pairs=167
+      length=22  pairs=152
+      length=23  pairs=88
+      length=24  pairs=57
+      length=25  pairs=12
+      length=26  pairs=8
+      length=27  pairs=5
+      length=28  pairs=9
+      length=29  pairs=6
+Average path length: 4.3469
+
+
+Observation: The clustering coefficient is 0 because the graph built from
+edges.csv is bipartite (heroes on one side, comics on the other). Bipartite
+graphs cannot contain triangles by definition, so triangleCount() returns 0
+for every vertex and the clustering coefficient is trivially 0. A meaningful
+clustering coefficient would require analysing the projected hero-hero graph
+(e.g. using hero-network.csv).
+
+Graph characterisation: The Marvel graph is sparse. The degree distribution
+is heavily skewed — while the mean degree is 9.75, the standard deviation of
+37.23 and maximum of 1577 indicate that a small number of high-degree hubs
+(heroes appearing in very many comics, or comics featuring very many heroes)
+coexist with a large majority of low-degree nodes. Despite this sparsity, the
+average path length of 4.3 is short relative to the graph size, consistent
+with the small-world property commonly observed in real social networks. Note
+that the average path length is an estimate based on a 1% random sample of
+source vertices. The long tail of the path-length histogram (pairs reaching
+up to length 29) corresponds to vertices in the smaller isolated components
+that are only loosely connected to the giant component.
+
+
+(d) PageRank vs Degree ranking
+-------------------------------
+Top-25 heroes by PageRank:
+      BARON ZEBEK                              PR=0.8005
+      EBONY                                    PR=0.8005
+      RINTRAH                                  PR=0.8005
+      PENTIGAAR                                PR=0.8005
+      STATIC                                   PR=0.8005
+      CALIFORNIUM                              PR=0.8005
+      KEY/                                     PR=0.8005
+      DEMONSTAFF                               PR=0.8005
+      NAUDA                                    PR=0.8005
+      THANE ECTOR                              PR=0.8005
+      STARSHINE/LANDRA                         PR=0.8005
+      SPIRAL                                   PR=0.8005
+      PISCES/NOAH PERRICON                     PR=0.8005
+      COLDBLOOD/                               PR=0.8005
+      NIGHT                                    PR=0.8005
+      DARCO                                    PR=0.8005
+      SENTRY 459                               PR=0.8005
+      HAVEN/RADHA DASTOOR                      PR=0.8005
+      VIOLENCE/                                PR=0.8005
+      FROSTBITE/DR. SLOANE                     PR=0.8005
+      BLOK                                     PR=0.8005
+      ACHILLES II/HELMUT                       PR=0.8005
+      CHANCE                                   PR=0.8005
+      COLOSSUS II DOPPELGA                     PR=0.8005
+      TAREVA                                   PR=0.8005
+
+Top-25 comics by PageRank:
+      MX '01                                   PR=18.7854
+      IW 1                                     PR=11.0713
+      MX 32                                    PR=9.2698
+      TB 7                                     PR=8.1742
+      TB 8                                     PR=7.8860
+      MAXSEC:DP                                PR=7.6923
+      MGK2 3                                   PR=7.0432
+      AF2 12                                   PR=6.7899
+      ABOM 3                                   PR=6.4483
+      MX 3                                     PR=6.2934
+      XFOR 116                                 PR=6.2450
+      UX 261                                   PR=6.1150
+      TB 6                                     PR=5.9060
+      HFH 12                                   PR=5.8653
+      DRSTR3 49                                PR=5.8197
+      SSU 1                                    PR=5.6732
+      A 188                                    PR=5.5973
+      XFOR 117                                 PR=5.5841
+      ASMSS 1/3                                PR=5.5772
+      MASTERS OF EVIL                          PR=5.5662
+      XCAL 94                                  PR=5.5661
+      SK 4                                     PR=5.4937
+      UX 383                                   PR=5.4576
+      TB 32                                    PR=5.4252
+      IW 3                                     PR=5.3286
+
+Top-25 heroes by total degree:
+      CAPTAIN AMERICA                          degree=1334
+      IRON MAN/TONY STARK                      degree=1150
+      THING/BENJAMIN J. GR                     degree=963
+      THOR/DR. DONALD BLAK                     degree=956
+      HUMAN TORCH/JOHNNY S                     degree=886
+      MR. FANTASTIC/REED R                     degree=854
+      HULK/DR. ROBERT BRUC                     degree=835
+      WOLVERINE/LOGAN                          degree=819
+      INVISIBLE WOMAN/SUE                      degree=762
+      SCARLET WITCH/WANDA                      degree=643
+      BEAST/HENRY &HANK& P                     degree=635
+      DR. STRANGE/STEPHEN                      degree=631
+      DAREDEVIL/MATT MURDO                     degree=619
+      HAWK                                     degree=605
+      VISION                                   degree=603
+      CYCLOPS/SCOTT SUMMER                     degree=585
+      WASP/JANET VAN DYNE                      degree=581
+      ANT-MAN/DR. HENRY J.                     degree=561
+      SUB-MARINER/NAMOR MA                     degree=530
+      STORM/ORORO MUNROE S                     degree=523
+      PROFESSOR X/CHARLES                      degree=496
+      MARVEL GIRL/JEAN GRE                     degree=466
+      COLOSSUS II/PETER RA                     degree=452
+      ANGEL/WARREN KENNETH                     degree=444
+      NIGHTCRAWLER/KURT WA                     degree=444
+
+Top-25 comics by total degree:
+      COC 1                                    degree=105
+      IW 3                                     degree=89
+      IW 1                                     degree=88
+      IW 4                                     degree=78
+      H2 279                                   degree=76
+      IW 2                                     degree=75
+      MAXSEC 3                                 degree=66
+      FF 370                                   degree=59
+      IW 6                                     degree=58
+      FF 369                                   degree=56
+      M/GN 1                                   degree=55
+      IW 5                                     degree=54
+      TB 25                                    degree=54
+      A3 1                                     degree=52
+      SWII 9                                   degree=52
+      FF 368                                   degree=52
+      MK3 41                                   degree=50
+      IG 2                                     degree=49
+      FF 367                                   degree=49
+      FF 3                                     degree=48
+      AF 111                                   degree=46
+      H2 278                                   degree=46
+      Q 38                                     degree=46
+      MX '01                                   degree=45
+      WM2 13                                   degree=44
+
+Overlap (heroes in both top-25 lists): 0 / 25
+Overlap (comics in both top-25 lists): 3 / 25
+
+
+Observation: The two ranking methods produce strikingly different results for
+heroes. The degree ranking identifies well-known central characters (Captain
+America, Iron Man, Thor, Hulk) who appear across hundreds of comics, which
+aligns with expectations. The PageRank hero ranking instead surfaces 25 minor
+characters all tied at the same low score of 0.8005, indicating they each
+appear exclusively in one single highly-ranked comic and inherit its PageRank
+without having broad connectivity of their own. This is a known artifact of
+running PageRank on a bipartite graph, where rank flows from heroes to comics
+and back, making isolated heroes in popular comics score deceptively high.
+For comics, the overlap between the two methods is small but non-zero (3/25):
+IW 1, IW 3 and MX '01 appear in both lists, confirming these are genuinely
+central issues both by raw number of heroes featured and by network influence.
+Overall, degree is a more reliable indicator of raw popularity in this
+bipartite setting, while PageRank is better suited to a projected hero-hero
+or comic-comic graph.
+
+(e) Hero co-occurrence pairs
+-----------------------------
+Pairs derived from edges.csv     : 107416
+Pairs in hero-network.csv        : 134681
+Pairs in common                  : 82766
+Pairs only in derived set        : 24650
+Pairs only in hero-network.csv   : 51915
+
+Observation: After stripping double quotes from hero-network.csv names, a
+significant overlap of 82766 pairs is found between the two sets.
+hero-network.csv is larger than the derived set (134681 vs 107416 pairs),
+which is consistent with it being a dedicated hero-hero network file with
+broader coverage. The 24650 pairs only in the derived set are co-occurrences
+captured by the bipartite graph that were not recorded in hero-network.csv,
+while the 51915 pairs only in hero-network.csv cannot be matched back to
+edges.csv due to the around 20-character name truncation causing string
+mismatches between the two files.
+
+
+--------------------------------------------------------------
+RUNTIMES
+--------------------------------------------------------------
+Graph construction          : 3.06   s
+Connected components        : 2.29   s
+Triangle count / clustering : 1.90   s
+Pregel SSSP                 : 72.17  s
+PageRank                    : 0.91   s
+Hero pair comparison        : 2.32   s
+Total wall-clock time       : 95     s
+
+--------------------------------------------------------------
+AI USED
+--------------------------------------------------------------
+
+We used Claude.ai during the development of this
+exercise. The AI assisted with:
+  - Creating the scala script
+  - Creating the sbatch script to run the script on the cluster
+  - Debugging spark-shell issues
+  - Interpreting results and writing observations
+  - Providing feedback on the script and the results
+
+
+All generated code was reviewed, tested and adjusted manually
+to fix errors and verify correctness of results.
+
+
+Main prompt used
+----------------
+
+I need to solve a graph analysis problem in Apache Spark using GraphX and Scala, based on the
+"Marvel Universe Social Network" dataset from Kaggle, consisting of three CSV files: edges.csv
+(hero, comic), nodes.csv (node, type), and hero-network.csv (hero1, hero2).
+
+The solution must be a single Scala script for spark-shell in batch mode via stdin redirection.
+Please add a time() helper wrapping each task and printing wall-clock runtimes. Prefix all
+output with the task label [a], [b], etc. Follow the style of the attached RunGraphX.scala
+reference script.
+
+Task (a): Parse edges.csv into (hero, comic) pairs, derive all distinct vertex names, assign
+Long IDs via zipWithUniqueId(), and build a Graph[String, Int]. Compare vertex sets with
+nodes.csv using subtract() in both directions and report the differences.
+
+Task (b): Run connectedComponents() and report the number of components and top-10 by size.
+
+Task (c): Compute degree distribution with summary stats and top-10 vertices. Compute average
+clustering coefficient via triangleCount() on an undirected copy of the graph. Provide average
+path length via Pregel SSSP on a 1% vertex sample using the mergeMaps/updateState/sendMessages
+pattern from the reference script, and print the path-length histogram.
+
+Task (d): Run pageRank(0.001, 0.15) and report top-25 heroes and comics separately, using type
+information from nodes.csv. Also rank by total degree using fullOuterJoin of inDegrees and
+outDegrees, joined to vertices via standard RDD join (not VertexRDD innerJoin). Report overlap
+between PageRank and degree top-25 lists for both heroes and comics.
+
+Task (e): Derive hero co-occurrence pairs from edges.csv via groupByKey() and combinations.
+Compare with hero-network.csv after stripping quotes, using subtract() in both directions.
+Report counts of pairs in common, only in the derived set, and only in hero-network.csv.
