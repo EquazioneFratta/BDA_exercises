@@ -1,0 +1,45 @@
+val numTrials: Int = 1000000
+val parallelism: Int = 100
+val baseSeed: Long = 1001
+val seeds: scala.collection.immutable.NumericRange.Exclusive[Long] = NumericRange 1001 until 1101
+import spark.implicits._
+val seedDS: org.apache.spark.sql.Dataset[Long] = [value: bigint]
+
+========== (c) PORTFOLIO VaR & CVaR (Correlated Factors) ==========
+val t0: Long = 1780534127587
+warning: 1 deprecation (since 2.13.0); for details, enable `:setting -deprecation` or `:replay -deprecation`
+val portfolioTrialsDS: org.apache.spark.sql.Dataset[Double] = [value: double]
+val res66: org.apache.spark.sql.Dataset[Double] = [value: double]
+val portfolioCount: Long = 1000000
+val portfolioVaR: Double = -0.06175757642978741
+val portfolioCVaR: Double = -0.08060740995250103
+val t1: Long = 1780534133904
+Trials:        1000000
+Portfolio VaR  (5%): -0.061758
+Portfolio CVaR (5%): -0.080607
+Runtime: 6.3 seconds
+
+========== (d) INDIVIDUAL STOCK VaR & CVaR ==========
+val stockNames: Array[String] = Array(AAPL, GOOGL, NVDA)
+[AAPL] VaR (5%): -0.048930  |  CVaR (5%): -0.063221  |  Runtime: 5.1 s
+[GOOGL] VaR (5%): -0.047867  |  CVaR (5%): -0.062342  |  Runtime: 4.6 s
+[NVDA] VaR (5%): -0.089208  |  CVaR (5%): -0.117206  |  Runtime: 4.7 s
+
+========== (e) PORTFOLIO VaR & CVaR (Independent Factors) ==========
+val t4: Long = 1780534150669
+warning: 1 deprecation (since 2.13.0); for details, enable `:setting -deprecation` or `:replay -deprecation`
+val indepDS: org.apache.spark.sql.Dataset[Double] = [value: double]
+val res74: org.apache.spark.sql.Dataset[Double] = [value: double]
+val indepCount: Long = 1000000
+val indepVaR: Double = -0.058875265853457225
+val indepCVaR: Double = -0.07707296981925132
+val t5: Long = 1780534157540
+Trials:       1000000
+Indep VaR  (5%): -0.058875
+Indep CVaR (5%): -0.077073
+Runtime: 6.9 seconds
+
+========== SUMMARY ==========
+(c) Correlated  VaR: -0.061758  CVaR: -0.080607
+(e) Independent VaR: -0.058875  CVaR: -0.077073
+Done.
