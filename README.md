@@ -1,2 +1,2 @@
 # BDA_exercises
-Bajo jajo, Bajo jajo
+BDA assignments
